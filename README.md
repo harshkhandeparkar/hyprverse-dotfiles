@@ -74,3 +74,4 @@ See also: My personal [VSCode theme](https://github.com/harshkhandeparkar/person
 ![fastfetch](img/fastfetch.png)
 ![rofi](img/rofi.png)
 ![cava-spotify](img/cava-spotify.png)
+![sddm](img/sddm.png)
