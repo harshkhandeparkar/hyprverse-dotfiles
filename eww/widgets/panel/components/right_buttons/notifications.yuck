@@ -1,5 +1,5 @@
 (defpoll notif_count
-	:interval "1s"
+	:interval "500ms"
 	:initial "0"
 	"swaync-client --count"
 )
@@ -8,6 +8,8 @@
 	(eventbox
 		:cursor "pointer"
 		:visible {notif_count > 0}
+		:active {notif_count > 0}
+		:onmiddleclick "swaync-client --close-all"
 		(button
 			:onclick "swaync-client --toggle-panel"
 			:class "panel-btn btn"
