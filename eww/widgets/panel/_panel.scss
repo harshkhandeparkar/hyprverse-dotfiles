@@ -1,0 +1,97 @@
+$end_margin: 10px;
+
+@keyframes loading {
+	0% {
+		background-color: color.change($surface1, $alpha:0.4);
+	}
+
+	50% {
+		background-color: color.change($surface1, $alpha:0.8);
+	}
+
+	100% {
+		background-color: color.change($surface1, $alpha:0.4);
+	}
+}
+
+// PANEL
+.panel {
+	background: $background_color;
+	border-radius: $border_radius;
+	border: $border;
+}
+// PANEL
+
+// PANEL - RIGHT
+.panel-right {
+	margin-right: $end_margin;
+
+	.quick-controls {
+		border-left: 1px solid $border_color;
+		padding-left: 10;
+		padding-right: 10;
+		margin-top: 5px;
+		margin-bottom: 5px;
+
+		eventbox {
+			padding: 0;
+			button {
+				padding: 0;
+			}
+		}
+
+		.power-profile-btn-balanced {
+			background-color: rgba(255, 255, 255, 0.3);
+		}
+		.power-profile-btn-performance {
+			background-color: rgba(233, 52, 52, 0.3);
+		}
+		.power-profile-btn-power-saver {
+			background-color: rgba(80, 219, 21, 0.3);
+		}
+	}
+}
+// PANEL - RIGHT
+
+// PANEL - LEFT
+.panel-left {
+	margin-left: $end_margin;
+}
+// PANEL - LEFT
+
+// PANEL - BUTTONS
+.panel-btn {
+	border: $border;
+	border-radius: 50%;
+	padding: 0;
+
+	background: transparent;
+
+	background-repeat: no-repeat;
+	background-size: 16px;
+	background-position: center;
+}
+
+.panel-btn.btn-loading {
+	animation: loading 1s infinite;
+}
+// PANEL - BUTTONS
+
+// DATETIME
+// DATETIME
+
+// MEDIA
+.media-progressbar {
+	// because it is slightly misaligned
+	margin-top: 2px;
+}
+
+.media-title-label {
+	border-right: 1px solid $border_color;
+	padding-right: 10px;
+}
+// MEDIA
+
+.reveal {
+	margin-top: 500px;
+}

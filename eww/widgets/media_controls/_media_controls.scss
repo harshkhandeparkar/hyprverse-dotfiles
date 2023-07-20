@@ -1,0 +1,40 @@
+.media_controls {
+	background: $background_color;
+	border: $border;
+	border-radius: $border_radius;
+
+	.media-title {
+		font-size: 1.3em;
+	}
+
+	.media-artist {
+		color: $accent_color;
+	}
+
+	.controls-box {
+		padding: 20px 20px 20px 10px;
+	}
+
+	.media-img {
+		margin: 10px;
+	}
+
+	.media-control-btn {
+		border-radius: 10px;
+		border: none;
+		padding: 0;
+	}
+
+	.media-control-btn:nth-child(2) {
+		border-right: 1px solid $border_color;
+		border-left: 1px solid $border_color;
+	}
+
+	.media-control-btn:nth-child(2):hover {
+		background-color: $hover_color;
+	}
+
+	.media-progress {
+		padding: 0 10px;
+	}
+}

@@ -1,0 +1,21 @@
+(include "./widgets/panel/components/right_buttons/vpn.yuck")
+(include "./widgets/panel/components/right_buttons/dnd.yuck")
+(include "./widgets/panel/components/right_buttons/power_profile.yuck")
+(include "./widgets/panel/components/right_buttons/quick_settings.yuck")
+(include "./widgets/panel/components/right_buttons/notifications.yuck")
+
+(defwidget right_buttons[]
+	(box
+		:space-evenly false
+		:spacing 10
+		:valign "center"
+		:vexpand false
+		:height 10
+		:class "quick-controls"
+		(dnd)
+		(power_profile_btn)
+		(vpn)
+		(quick_settings_button)
+		(notifications)
+	)
+)

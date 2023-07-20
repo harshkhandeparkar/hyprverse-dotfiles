@@ -1,0 +1,105 @@
+(defvar media_controls_open false)
+(defwindow media_controls
+	:monitor 0
+	:geometry (geometry
+		:x "20px"
+		:y "20px"
+		:width "500px"
+		:height "120px"
+		:anchor "top left"
+	)
+	:stacking "fg"
+	:focusable false
+	:exclusive true
+
+	(box
+		:space-evenly false
+		(media_player_icon
+			:height 120
+		)
+		(box
+			:orientation "vertical"
+			:hexpand true
+			:space-evenly false
+			:spacing 10
+			:class "controls-box"
+			(box
+				:orientation "vertical"
+				(label
+					:text {media_title}
+					:limit-width 50
+					:halign "center"
+					:vexpand true
+					:class "media-title"
+				)
+				(label
+					:text {media_artist != "" ? media_artist : "Artist Not Found"}
+					:limit-width 30
+					:halign "center"
+					:vexpand true
+					:class "media-artist"
+					:visible {media_artist != ""}
+				)
+			)
+			(box
+				:height 35
+				:spacing 5
+				(eventbox
+					:class "media-control-btn btn"
+					:onclick "playerctl previous"
+					:cursor "pointer"
+					(image
+						:path "img/yaru-icons/media-skip-backward-symbolic.svg"
+					)
+				)
+				(eventbox
+					:class "media-control-btn btm"
+					:onclick "playerctl play-pause"
+					:cursor "pointer"
+					(image
+						:path {
+							media_status == "Paused" ?
+							"img/yaru-icons/media-playback-start-symbolic.svg" :
+							"img/yaru-icons/media-playback-pause-symbolic.svg"
+						}
+					)
+				)
+				(eventbox
+					:class "media-control-btn btn"
+					:onclick "playerctl next"
+					:cursor "pointer"
+					(image
+						:path "img/yaru-icons/media-skip-forward-symbolic.svg"
+					)
+				)
+			)
+			(media_progress
+				:width 10
+				:visible true
+			)
+			(volume_slider)
+		)
+	)
+)
+
+(defwidget volume_slider[]
+	(box
+		:spacing 10
+		:space-evenly false
+		:style "padding: 0 10px;"
+		(image
+			:path "img/yaru-icons/audio-volume-low.svg"
+		)
+		(scale
+			:value {media_progress.volume * 100}
+			:onchange "playerctl volume $(python -c 'print({} / 100)')"
+			:min 0
+			:max 100
+			:hexpand true
+		)
+		(label
+			:text '${round(media_progress.volume * 100, 0)} %'
+			:hexpand false
+		)
+	)
+)

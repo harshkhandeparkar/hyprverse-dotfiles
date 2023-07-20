@@ -1,0 +1,9 @@
+(include "./widgets/panel/panel.yuck")
+(include "./widgets/osd/osd.yuck")
+(include "./widgets/panel_calendar/panel_calendar.yuck")
+(include "./widgets/media_controls/media_controls.yuck")
+(include "./widgets/quick_settings/quick_settings.yuck")
+
+(include "./widgets/common/media/components/media_variables.yuck")
+(include "./widgets/common/media/components/media_progress.yuck")
+(include "./widgets/common/media/components/media_player_icon.yuck")

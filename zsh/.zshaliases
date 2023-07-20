@@ -1,0 +1,15 @@
+alias sucrow='sudo'
+alias yay!='yay'
+alias neofetch='fastfetch'
+alias cat='bat'
+alias ls='exa --icons --header'
+
+# Git aliases
+alias checkout='git checkout'
+alias push='git push'
+alias pull='git pull'
+alias commit='git commit'
+alias fetch='git fetch'
+alias clone='git clone'
+alias stage='git add .'
+alias status='git status'

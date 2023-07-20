@@ -1,0 +1,43 @@
+.quick_settings {
+	background-color: $background_color;
+	border-radius: $border_radius;
+	border: $border;
+
+	> box {
+		padding: 1rem;
+	}
+
+	// QUICK SETTINGS HEADER
+	.quick-settings-header {
+		> label {
+			font-size: 2rem;
+		}
+
+		padding: 0 1rem 1rem 1rem;
+		border-bottom: $border;
+	}
+	// QUICK SETTINGS HEADER
+
+	// ICON BUTTON
+	.icon-btn {
+		border-radius: 50%;
+	}
+	// ICON BUTTON
+
+	// DIVIDER
+	.divider {
+		border-bottom: $border;
+		margin: 0 100px;
+	}
+	// DIVIDER
+
+	// SLIDER SETTING
+	.slider-setting-title {
+		font-weight: bold;
+	}
+
+	.slider-setting-slider {
+		padding-left: 0;
+	}
+	// SLIDER SETTING
+}

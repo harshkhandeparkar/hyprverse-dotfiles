@@ -1,0 +1,41 @@
+(defwidget slider_setting[value onchange icon title]
+	(box
+		:spacing 10
+		:space-evenly false
+
+		(image
+			:path {icon}
+			:image-height 40
+			:valign "center"
+		)
+		(box
+			:orientation "vertical"
+			:space-evenly true
+			:hexpand true
+			:vexpand false
+
+			(label
+				:text {title}
+				:hexpand false
+				:halign "start"
+				:valign "center"
+				:class "slider-setting-title"
+			)
+			(box
+				:space-evenly false
+				(scale
+					:value {value}
+					:onchange {onchange}
+					:min 0
+					:max 101
+					:hexpand true
+					:vexpand false
+					:class "slider-setting-slider"
+				)
+				(label
+					:text {round(value, 0)}
+				)
+			)
+		)
+	)
+)

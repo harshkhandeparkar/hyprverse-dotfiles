@@ -1,0 +1,64 @@
+@import './variables';
+@import './widgets/panel/panel';
+@import './widgets/osd/osd';
+@import './widgets/panel_calendar/panel_calendar';
+@import './widgets/media_controls/media_controls';
+@import './widgets/quick_settings/quick_settings';
+
+.bold {
+	font-weight: bold;
+}
+
+.accent {
+	color: $accent_color;
+}
+
+// removes the outline that appears on the buttons when using tab
+button {
+	outline: none;
+}
+
+// Progressbar
+.progressbar, scale > contents {
+	> trough {
+		// required to set the width. see https://elkowar.github.io/eww/widgets.html
+		min-width: 10px;
+		background-color: $surface1;
+		border: $border;
+
+		// styling
+		> progress {
+			background-color: $accent_color;
+			border-color: transparent;
+		}
+	}
+}
+
+// button
+button {
+	background-color: transparent;
+	border: none;
+}
+
+.btn {
+	background: transparent;
+	border: $border;
+	padding: 5px;
+}
+
+.btn:hover {
+	background: $hover_color;
+}
+
+.btn-active {
+	background: $active_color;
+}
+
+.btn-active:hover {
+	background: $active_hover_color;
+}
+
+circular-progress {
+	color: $accent_color;
+	background-color: $surface1;
+}

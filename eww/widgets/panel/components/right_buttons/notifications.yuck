@@ -1,0 +1,24 @@
+(defpoll notif_count
+	:interval "1s"
+	:initial "0"
+	"swaync-client --count"
+)
+
+(defwidget notifications[]
+	(eventbox
+		:cursor "pointer"
+		:visible {notif_count > 0}
+		(button
+			:onclick "swaync-client --toggle-panel"
+			:class "panel-btn btn"
+
+			:tooltip "Notifications"
+
+			(label
+				:text {notif_count}
+				:style "font-weight: bold; font-size: 1.1rem;"
+				:width 20
+			)
+		)
+	)
+)

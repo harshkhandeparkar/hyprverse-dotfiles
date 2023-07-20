@@ -1,0 +1,27 @@
+(deflisten media_status
+	:initial "Not Playing"
+	`playerctl --follow status`
+)
+
+(defpoll media_title
+	:initial "media"
+	:interval "500ms"
+	`sh ./widgets/common/media/scripts/media_data --title`
+)
+
+(defpoll media_artist
+	:initial "artist"
+	:interval "500ms"
+	`sh ./widgets/common/media/scripts/media_data --artist`
+)
+
+(defpoll media_player_name
+	:initial "player"
+	:interval "500ms"
+	`sh ./widgets/common/media/scripts/media_data --playerName`
+)
+
+(defpoll media_progress
+	:interval "500ms"
+	`sh ./widgets/common/media/scripts/media_data --progress`
+)

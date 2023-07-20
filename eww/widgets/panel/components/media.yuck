@@ -1,0 +1,40 @@
+(defwidget media[]
+	(box
+		:halign "start"
+		:space-evenly false
+		:spacing 10
+		:visible {media_status == "Playing" || media_status == "Paused"}
+
+		(media_label)
+		(media_progress
+			:width 100
+			:visible {media_status == "Playing"}
+		)
+		(image
+			:path "img/yaru-icons/media-playback-pause-symbolic.svg"
+			:visible {media_status == "Paused"}
+			:valign "center"
+		)
+	)
+)
+
+(defwidget media_label[]
+	(eventbox
+		:cursor "pointer"
+		:onclick "widgets/scripts/toggle_window media_controls"
+		:class "panel-media-label"
+		(box
+			:space-evenly false
+			:spacing 10
+			(media_player_icon
+				:height 20
+			)
+			(label
+				:text {media_artist != "" ? '${media_title} - ${media_artist}' : media_title}
+				:limit-width 50
+				:valign "center"
+				:class "media-title-label"
+			)
+		)
+	)
+)

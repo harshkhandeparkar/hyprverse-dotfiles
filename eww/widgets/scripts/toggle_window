@@ -1,0 +1,8 @@
+window_open=$(eww windows | grep "\*$1")
+
+if [[ $window_open == "" ]];
+then
+	eww open $1 && eww update "${1}_open=true"
+else
+	eww close $1 && eww update "${1}_open=false"
+fi

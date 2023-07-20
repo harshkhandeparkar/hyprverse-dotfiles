@@ -1,0 +1,10 @@
+osd_timer=$(eww get osd_timer)
+
+if (( $osd_timer <= 0 ));
+then
+	eww update osd_open=false
+	eww close osd
+	echo 2
+else
+	echo $((osd_timer - 1))
+fi

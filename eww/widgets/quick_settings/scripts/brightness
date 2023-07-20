@@ -1,0 +1,14 @@
+get_brightness() {
+	echo $(($(brightnessctl get) * 100 / $(brightnessctl max)))
+}
+
+set_brightness() {
+	brightnessctl set "${1}%"
+}
+
+if [[ "$1" == "get" ]];
+then
+	get_brightness
+else
+	set_brightness "$2"
+fi

@@ -1,0 +1,39 @@
+(include "./widgets/panel/components/datetime.yuck")
+(include "./widgets/panel/components/status.yuck")
+(include "./widgets/panel/components/media.yuck")
+(include "./widgets/panel/components/right_buttons/right_buttons.yuck")
+
+(defwindow panel
+	:monitor 0
+	:geometry (geometry
+		:x "0%"
+		:y "0%"
+		:width "1880px"
+		:height "35px"
+		:anchor "top center"
+	)
+	:stacking "fg"
+	:focusable false
+	:exclusive true
+
+	(centerbox
+		(box
+			:class "panel-left"
+			:halign "start"
+			(media)
+		)
+		(box
+			:class "panel-center"
+			:halign "center"
+			(datetime)
+		)
+		(box
+			:class "panel-right"
+			:space-evenly false
+			:spacing 10
+			:halign "end"
+			(status)
+			(right_buttons)
+		)
+	)
+)

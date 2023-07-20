@@ -1,0 +1,22 @@
+(defpoll dnd_status
+	:interval "100ms"
+	:initial "false"
+	"swaync-client --get-dnd"
+)
+
+(defwidget dnd[]
+	(eventbox
+		:cursor "pointer"
+		(button
+			:onclick "swaync-client --toggle-dnd"
+			:class "panel-btn vpn-btn btn ${dnd_status == 'true' ? 'btn-active' : ''}"
+
+			:tooltip "Do Not Disturb"
+
+			(image
+				:path "img/yaru-icons/indicator-notification-read-dnd.svg"
+				:image-height 20
+			)
+		)
+	)
+)

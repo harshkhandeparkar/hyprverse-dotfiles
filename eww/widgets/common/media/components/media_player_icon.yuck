@@ -1,0 +1,8 @@
+(defwidget media_player_icon[height]
+	(image
+		:path '/usr/share/icons/hicolor/128x128/apps/${media_player_name}.png'
+		:image-height {height}
+		:class "media-img"
+		:valign "center"
+	)
+)

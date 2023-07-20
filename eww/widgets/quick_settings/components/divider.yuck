@@ -1,0 +1,6 @@
+(defwidget divider[]
+	(box
+		:class "divider"
+		:hexpand false
+	)
+)

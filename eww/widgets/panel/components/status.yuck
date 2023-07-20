@@ -1,0 +1,76 @@
+(defwidget status[]
+	(box
+		:spacing 15
+		:space-evenly false
+		:class "status"
+
+		(cpu)
+		(ram)
+		(batt)
+	)
+)
+
+(defwidget batt[]
+	(box
+		:tooltip "Battery"
+		:spacing 8
+		:space-evenly false
+		(image
+			:image-height 24
+			:path {
+				EWW_BATTERY['BAT1'].status != "Charging" ?
+				"./img/yaru-icons/battery-${round(EWW_BATTERY.total_avg / 20, 0)*2 != 10 ? '0' : ''}${round(EWW_BATTERY.total_avg / 20, 0)*2}0.svg" :
+				"./img/yaru-icons/battery-${round(EWW_BATTERY.total_avg / 20, 0)*2 != 10 ? '0' : ''}${round(EWW_BATTERY.total_avg / 20, 0)*2}0-charging.svg"
+			}
+		)
+		(label
+			:text "${round(EWW_BATTERY.total_avg, 0)} %"
+			:halign "end"
+			:class "bold"
+		)
+	)
+)
+
+(defwidget ram[]
+	(box
+		:tooltip "Memory Usage"
+		:spacing 8
+		:space-evenly false
+		(circular-progress
+			:value {(EWW_RAM.used_mem / EWW_RAM.total_mem) * 100}
+			:thickness 4
+			:width 24
+			:height 24
+			:halign "end"
+			:class "bold"
+		)
+
+		(label
+			:text "${round(EWW_RAM.used_mem / 1000000000, 2)} GB"
+			:halign "end"
+			:class "bold"
+		)
+	)
+)
+
+(defwidget cpu[]
+	(box
+		:tooltip "CPU Usage"
+		:spacing 8
+		:space-evenly false
+		(circular-progress
+			:value {EWW_CPU.avg}
+			:thickness 4
+			:width 24
+			:height 24
+			:halign "end"
+			:class "bold"
+		)
+
+		(label
+			:text "${round(EWW_CPU.avg, 1)} %"
+			:halign "end"
+			:class "bold"
+		)
+	)
+)

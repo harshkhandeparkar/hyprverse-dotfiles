@@ -1,0 +1,13 @@
+.panel_calendar {
+	background-color: $background_color;
+}
+
+calendar {
+	background: $background_color;
+	border: $border;
+	border-radius: $border_radius;
+
+	header {
+		border: none;
+	}
+}

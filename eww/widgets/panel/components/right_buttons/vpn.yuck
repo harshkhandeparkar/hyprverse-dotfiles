@@ -1,0 +1,22 @@
+(defpoll vpn_status
+	:interval "100ms"
+	:initial ""
+	"zsh ./widgets/panel/scripts/vpn status"
+)
+
+(defwidget vpn[]
+	(eventbox
+		:cursor "pointer"
+		(button
+			:onclick "zsh widgets/panel/scripts/vpn toggle"
+			:class "panel-btn btn ${vpn_status == 'activating' || vpn_status == 'deactivating' ? 'btn-loading' : vpn_status == 'activated' ? 'btn-active' : ''}"
+
+			:tooltip "VPN"
+
+			(image
+				:path "img/yaru-icons/nm-vpn-standalone-lock.svg"
+				:image-height 20
+			)
+		)
+	)
+)

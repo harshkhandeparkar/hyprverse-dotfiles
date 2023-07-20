@@ -1,0 +1,16 @@
+(defpoll time
+	:interval "1s"
+	:initial "TIME"
+	`date "+%a %b %d  %r"`
+)
+
+(defwidget datetime[]
+	(eventbox
+		:class "panel-date-time"
+		:cursor "pointer"
+		:onclick "widgets/scripts/toggle_window panel_calendar"
+		(label
+			:text "${time}"
+		)
+	)
+)

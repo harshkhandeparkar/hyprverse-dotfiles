@@ -1,0 +1,26 @@
+get_metadata() {
+	playerctl metadata -f "{{$1}}"
+}
+
+get_progress() {
+	playerctl metadata -f '{"position":{{(position / mpris:length) * 100}}, "position_duration": "{{duration(position)}}", "length_duration": "{{duration(mpris:length)}}", "volume": {{volume}}}'
+}
+
+case "$1" in
+
+	"--title")
+		get_metadata title
+		;;
+
+	"--artist")
+		get_metadata artist
+		;;
+
+	"--playerName")
+		get_metadata playerName
+		;;
+
+	"--progress")
+		get_progress
+
+esac

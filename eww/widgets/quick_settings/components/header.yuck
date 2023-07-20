@@ -1,0 +1,37 @@
+(defwidget quick_settings_header[]
+	(centerbox
+		:space-evenly false
+		:spacing 10
+		:class "quick-settings-header"
+		:valign "center"
+
+		(image
+			:image-height 30
+			:image-width 30
+			:path "img/yaru-icons/system-settings-symbolic.svg"
+			:halign "start"
+		)
+		(label
+			:text "Quick Settings"
+		)
+		(box
+			:space-evenly false
+			:halign "end"
+			(eventbox
+				:class "btn icon-btn"
+				:height 20
+				:width 20
+				:cursor "pointer"
+				:tooltip "Close"
+				(button
+					:onclick "widgets/scripts/toggle_window quick_settings"
+					(image
+						:path "img/yaru-icons/window-close-symbolic.svg"
+						:image-height 20
+						:image-width 20
+					)
+				)
+			)
+		)
+	)
+)

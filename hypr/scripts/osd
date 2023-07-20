@@ -1,0 +1,52 @@
+osd() {
+	eww update osd_type=$1
+	eww open osd
+	eww update osd_open=true osd_timer=2
+}
+
+is_muted() {
+	mute=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | cut -d ' ' -f3)
+	if [[ $mute != "" ]];
+	then
+		echo true
+	else
+		echo false
+	fi
+}
+
+# For Wireplumber
+case $1 in
+"audio-up")
+	wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+	eww update audio_level=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | cut -d ' ' -f2)
+
+	osd audio
+;;
+"audio-down")
+	wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+	eww update audio_level=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | cut -d ' ' -f2)
+
+	osd audio
+;;
+"audio-mute")
+	wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+	eww update audio_mute=$(is_muted)
+
+	osd audio
+;;
+"brightness-up")
+	brightnessctl set 5%+
+	eww update brightness_level=$(($(brightnessctl get) * 100 / $(brightnessctl max)))
+
+	osd brightness
+;;
+"brightness-down")
+	brightnessctl set 5%-
+	eww update brightness_level=$(($(brightnessctl get) * 100 / $(brightnessctl max)))
+
+	osd brightness
+;;
+*)
+	echo "no option specified."
+;;
+esac

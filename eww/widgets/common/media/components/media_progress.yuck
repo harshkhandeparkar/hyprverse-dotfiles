@@ -1,0 +1,25 @@
+(defwidget media_progress[width visible]
+	(box
+		:spacing 10
+		:space-evenly false
+		:visible {visible && media_progress != ""}
+		:class "media-progress"
+		(label
+			:text "${media_progress.position_duration}"
+			:class "media-progress-label"
+			:valign "center"
+		)
+		(progress
+			:value "${media_progress.position}"
+			:class "progressbar media-progressbar"
+			:valign "center"
+			:hexpand true
+			:width {width}
+		)
+		(label
+			:text "${media_progress.length_duration}"
+			:class "media-length-label"
+			:valign "center"
+		)
+	)
+)

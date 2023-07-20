@@ -1,0 +1,13 @@
+current_power_profile=$(powerprofilesctl get)
+
+case $current_power_profile in
+	"balanced")
+		powerprofilesctl set performance
+		;;
+	"performance")
+		powerprofilesctl set power-saver
+		;;
+	"power-saver")
+		powerprofilesctl set balanced
+		;;
+esac

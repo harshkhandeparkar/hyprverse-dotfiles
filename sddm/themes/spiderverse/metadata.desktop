@@ -1,0 +1,12 @@
+[SddmGreeterTheme]
+Name=Spiderverse Theme
+Description=Spiderverse Theme based on the Maldives theme
+Author=Harsh Khandeparkar
+Copyright=(c) 2013, Abdurrahman AVCI, (c) 2023, Harsh Khandeparkar
+License=CC-BY-SA
+Type=sddm-theme
+Version=0.1
+MainScript=Main.qml
+ConfigFile=theme.conf
+Theme-Id=spiderverse
+Theme-API=2.0

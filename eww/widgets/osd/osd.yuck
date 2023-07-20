@@ -1,0 +1,82 @@
+; OSD TIMER
+(defvar osd_open
+	false
+)
+(defpoll osd_timer
+	:interval "1s"
+	:initial 2
+	:run-while osd_open
+	`sh ./widgets/osd/scripts/osd_close`
+)
+; OSD TIMER
+
+; OSD TYPE (audio/brightness)
+(defvar osd_type
+	"audio"
+)
+; OSD TYPE
+
+; AUDIO OSD
+(defvar audio_level ; Range: 0 - 1
+	0.1
+)
+(defvar audio_mute
+	false
+)
+; AUDIO OSD
+
+; BRIGHTNESS OSD
+(defvar brightness_level ; Range: 0 - 100 (%)
+	10
+)
+; BRIGHTNESS OSD
+
+(defwindow osd
+	:monitor 0
+	:geometry (geometry
+		:x "0%"
+		:y "20px"
+		:width "15%"
+		:height "50px"
+		:anchor "bottom center"
+	)
+	:stacking "overlay"
+	:focusable false
+	:exclusive false
+
+	(osd_widget
+		:value {osd_type == "audio" ? audio_level * 100 : brightness_level}
+		:icon {
+			osd_type == "audio" ?
+			(
+				audio_mute ?
+				"./img/yaru-icons/audio-volume-muted.svg" :
+				"./img/yaru-icons/audio-volume-${audio_level < 0.33 ? 'low' : (audio_level > 0.66 ? 'high' : 'medium')}.svg"
+			) :
+			"./img/yaru-icons/display-brightness-symbolic.svg"
+		}
+	)
+)
+
+; LEVEL: Value of the displayed quantity - goes from 0 to 100 (%)
+; ICON:  Path to the icon for the displayed quantity
+(defwidget osd_widget[value icon]
+	(box
+		:space-evenly false
+		:spacing 10
+		(image
+			:path {icon}
+			:halign "start"
+			:image-width 20
+		)
+		(progress
+			:class "progressbar"
+			:valign "center"
+			:value {round(value, 0)}
+			:hexpand true
+		)
+		(label
+			:text "${round(value, 0)} %"
+		)
+	)
+)

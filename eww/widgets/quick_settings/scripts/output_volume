@@ -1,0 +1,15 @@
+get_volume() {
+	echo $(wpctl get-volume @DEFAULT_AUDIO_SINK@ | cut -d ' ' -f2)
+}
+
+set_volume() {
+	wpctl set-volume @DEFAULT_AUDIO_SINK@ "${1}%"
+}
+
+if [[ "$1" == "get" ]];
+then
+	get_volume
+elif [[ "$1" == "set" ]];
+then
+	set_volume "$2"
+fi

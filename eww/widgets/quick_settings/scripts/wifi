@@ -1,0 +1,29 @@
+get_wifi_status() {
+	nmcli_output=$(nmcli radio wifi)
+
+	if [[ $nmcli_output == "enabled" ]];
+	then
+		echo true
+	else
+		echo false
+	fi
+}
+
+toggle_wifi() {
+	wifi_status=$(get_wifi_status)
+
+	if [[ $wifi_status == "true" ]];
+	then
+		nmcli radio wifi off
+	else
+		nmcli radio wifi on
+	fi
+}
+
+if [[ "$1" == "status" ]];
+then
+	get_wifi_status
+elif [[ "$1" == "toggle" ]];
+then
+	toggle_wifi
+fi

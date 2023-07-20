@@ -1,0 +1,16 @@
+(defwidget quick_settings_button[]
+	(eventbox
+		:vexpand false
+		:cursor "pointer"
+		(button
+			:tooltip "Quick Settings..."
+			:class "panel-btn power-btn btn"
+			:onclick "widgets/scripts/toggle_window quick_settings"
+
+			(image
+				:path "img/yaru-icons/system-settings-symbolic.svg"
+				:image-height 20
+			)
+		)
+	)
+)
