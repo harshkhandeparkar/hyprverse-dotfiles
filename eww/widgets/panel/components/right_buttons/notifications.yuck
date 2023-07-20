@@ -6,21 +6,20 @@
 
 (defwidget notifications[]
 	(eventbox
-		:cursor "pointer"
 		:visible {notif_count > 0}
 		:active {notif_count > 0}
+
+		:class "panel-btn btn"
+		:cursor "pointer"
+		:tooltip "Notifications"
+
 		:onmiddleclick "swaync-client --close-all"
-		(button
-			:onclick "swaync-client --toggle-panel"
-			:class "panel-btn btn"
+		:onclick "swaync-client --toggle-panel"
 
-			:tooltip "Notifications"
-
-			(label
-				:text {notif_count}
-				:style "font-weight: bold; font-size: 1.1rem;"
-				:width 20
-			)
+		(label
+			:text {notif_count}
+			:style "font-weight: bold; font-size: 1.1rem;"
+			:width 20
 		)
 	)
 )
