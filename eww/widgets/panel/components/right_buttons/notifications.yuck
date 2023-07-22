@@ -14,9 +14,9 @@
 		:tooltip "Notifications"
 
 		:onmiddleclick "swaync-client --close-all"
-		:onclick "swaync-client --toggle-panel"
 
 		(button
+			:onclick "swaync-client --toggle-panel"
 			(label
 				:text {notif_count}
 				:style "font-weight: bold; font-size: 1.1rem;"
