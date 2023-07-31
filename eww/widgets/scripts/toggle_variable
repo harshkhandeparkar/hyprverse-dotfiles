@@ -1,0 +1,8 @@
+current_value=$(eww get "$1")
+
+if [[ $current_value == "true" ]];
+then
+	eww update "${1}=false"
+else
+	eww update "${1}=true"
+fi

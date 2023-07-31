@@ -1,5 +1,6 @@
 (include "./widgets/quick_settings/components/slider_setting.yuck")
 (include "./widgets/quick_settings/components/icon_button.yuck")
+(include "./widgets/quick_settings/components/text_button.yuck")
 (include "./widgets/quick_settings/components/header.yuck")
 (include "./widgets/quick_settings/components/divider.yuck")
 
@@ -89,6 +90,33 @@
 			:value {brightness}
 			:onchange "./widgets/quick_settings/scripts/brightness set {}"
 			:icon "img/yaru-icons/display-brightness-symbolic.svg"
+		)
+		(divider)
+		(label :text "Panel Status Indicators")
+		(box
+			:space-evenly false
+			:spacing 10
+			:halign "center"
+			(text_button
+				:text "CPU"
+				:onclick "./widgets/scripts/toggle_variable cpu_status_indicator_shown"
+				:toggled {cpu_status_indicator_shown}
+			)
+			(text_button
+				:text "RAM"
+				:onclick "./widgets/scripts/toggle_variable ram_status_indicator_shown"
+				:toggled {ram_status_indicator_shown}
+			)
+			(text_button
+				:text "Battery"
+				:onclick "./widgets/scripts/toggle_variable batt_status_indicator_shown"
+				:toggled {batt_status_indicator_shown}
+			)
+			(text_button
+				:text "Workspace"
+				:onclick "./widgets/scripts/toggle_variable workspace_status_indicator_shown"
+				:toggled {workspace_status_indicator_shown}
+			)
 		)
 	)
 )

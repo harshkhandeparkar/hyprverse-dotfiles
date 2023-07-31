@@ -1,18 +1,24 @@
+(defvar cpu_status_indicator_shown true)
+(defvar ram_status_indicator_shown true)
+(defvar batt_status_indicator_shown true)
+(defvar workspace_status_indicator_shown true)
+
 (defwidget status[]
 	(box
 		:spacing 15
 		:space-evenly false
 		:class "status"
 
-		(cpu)
-		(ram)
-		(batt)
-		(workspace)
+		(cpu :visible {cpu_status_indicator_shown})
+		(ram :visible {ram_status_indicator_shown})
+		(batt :visible {batt_status_indicator_shown})
+		(workspace :visible {workspace_status_indicator_shown})
 	)
 )
 
-(defwidget batt[]
+(defwidget batt[visible]
 	(box
+		:visible {visible}
 		:tooltip "Battery"
 		:spacing 8
 		:space-evenly false
@@ -32,8 +38,9 @@
 	)
 )
 
-(defwidget ram[]
+(defwidget ram[visible]
 	(box
+		:visible {visible}
 		:tooltip "Memory Usage"
 		:spacing 8
 		:space-evenly false
@@ -54,8 +61,9 @@
 	)
 )
 
-(defwidget cpu[]
+(defwidget cpu[visible]
 	(box
+		:visible {visible}
 		:tooltip "CPU Usage"
 		:spacing 8
 		:space-evenly false
@@ -87,8 +95,9 @@
 	:interval "300ms"
 	`hyprctl workspaces | grep workspace -c`
 )
-(defwidget workspace[]
+(defwidget workspace[visible]
 	(box
+		:visible {visible}
 		:tooltip "Active Workspace"
 		:spacing 8
 		:space-evenly false

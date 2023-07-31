@@ -1,0 +1,13 @@
+(defwidget text_button[text onclick toggled]
+	(eventbox
+		:class "btn ${toggled ? 'btn-active' : ''}"
+		:height 30
+		:cursor "pointer"
+		(button
+			:onclick {onclick}
+			(label
+				:text {text}
+			)
+		)
+	)
+)
