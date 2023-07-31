@@ -4,7 +4,7 @@
 		:cursor "pointer"
 		(button
 			:tooltip "Quick Settings..."
-			:class "panel-btn power-btn btn"
+			:class "panel-btn power-btn btn ${quick_settings_open ? 'btn-active' : ''}"
 			:onclick "widgets/scripts/toggle_window quick_settings"
 
 			(image
