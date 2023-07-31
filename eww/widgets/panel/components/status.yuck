@@ -7,6 +7,7 @@
 		(cpu)
 		(ram)
 		(batt)
+		(workspace)
 	)
 )
 
@@ -69,6 +70,35 @@
 
 		(label
 			:text "${round(EWW_CPU.avg, 1)} %"
+			:halign "end"
+			:class "bold"
+		)
+	)
+)
+
+
+(defpoll current_workspace
+	:initial "1"
+	:interval "300ms"
+	`hyprctl monitors | grep active | awk '{print $3}'`
+)
+(defpoll total_workspaces
+	:initial "1"
+	:interval "300ms"
+	`hyprctl workspaces | grep workspace -c`
+)
+(defwidget workspace[]
+	(box
+		:tooltip "Active Workspace"
+		:spacing 8
+		:space-evenly false
+		(image
+			:image-height 18
+			:path "./img/yaru-icons/computer-symbolic.svg"
+		)
+
+		(label
+			:text "${current_workspace} : ${total_workspaces}"
 			:halign "end"
 			:class "bold"
 		)
