@@ -64,12 +64,6 @@ $end_margin: 10px;
 }
 // PANEL - RIGHT
 
-// PANEL - LEFT
-.panel-left {
-	margin-left: $end_margin;
-}
-// PANEL - LEFT
-
 // PANEL - BUTTONS
 .panel-btn {
 	border: $border;
@@ -91,14 +85,30 @@ $end_margin: 10px;
 // DATETIME
 
 // MEDIA
-.media-progressbar {
-	// because it is slightly misaligned
-	margin-top: 2px;
-}
+.panel-media {
+	.panel-media-label {
+		border-top-left-radius: $border_radius;
+		border-bottom-left-radius: $border_radius;
 
-.media-title-label {
-	border-right: 1px solid $border_color;
-	padding-right: 10px;
+		box {
+			padding-right: 10px;
+			margin-left: $end_margin;
+		}
+	}
+
+	.panel-media-label:hover {
+		background-color: $hover_color;
+
+	}
+
+	.media-progress {
+		// because it is slightly misaligned
+		margin-top: 8px;
+		margin-bottom: 6px;
+
+		border-left: 1px solid $border_color;
+		padding-left: 10px;
+	}
 }
 // MEDIA
 

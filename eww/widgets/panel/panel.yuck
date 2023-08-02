@@ -17,11 +17,11 @@
 	:exclusive true
 
 	(centerbox
-		(box
-			:class "panel-left"
-			:halign "start"
+		; (box
+		; 	:class "panel-left"
+		; 	:halign "start"
 			(media)
-		)
+		; )
 		(box
 			:class "panel-center"
 			:halign "center"
