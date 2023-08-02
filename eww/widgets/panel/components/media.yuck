@@ -1,10 +1,12 @@
+(defvar panel_media_feature_enabled true)
+
 (defwidget media[]
 	(box
 		:halign "start"
 		:class "panel-media"
 		:space-evenly false
-		; :spacing 10
-		:visible {media_status == "Playing" || media_status == "Paused"}
+		:visible {(media_status == "Playing" || media_status == "Paused") && panel_media_feature_enabled}
+		:active {panel_media_feature_enabled}
 
 		(media_label)
 		(media_progress

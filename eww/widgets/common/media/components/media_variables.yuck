@@ -6,28 +6,33 @@
 (defpoll media_title
 	:initial "media"
 	:interval "500ms"
+	:run-while panel_media_feature_enabled
 	`sh ./widgets/common/media/scripts/media_data --title`
 )
 
 (defpoll media_artist
 	:initial "artist"
 	:interval "500ms"
+	:run-while panel_media_feature_enabled
 	`sh ./widgets/common/media/scripts/media_data --artist`
 )
 
 (defpoll media_cover
 	:initial "cover"
 	:interval "1s"
+	:run-while panel_media_feature_enabled
 	`sh ./widgets/common/media/scripts/media_cover`
 )
 
 (defpoll media_player_name
 	:initial "player"
 	:interval "500ms"
+	:run-while panel_media_feature_enabled
 	`sh ./widgets/common/media/scripts/media_data --playerName`
 )
 
 (defpoll media_progress
 	:interval "500ms"
+	:run-while panel_media_feature_enabled
 	`sh ./widgets/common/media/scripts/media_data --progress`
 )

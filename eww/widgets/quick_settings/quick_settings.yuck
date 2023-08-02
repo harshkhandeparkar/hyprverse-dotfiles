@@ -118,5 +118,16 @@
 				:toggled {workspace_status_indicator_shown}
 			)
 		)
+		(label :text "Features")
+		(box
+			:space-evenly false
+			:spacing 10
+			:halign "center"
+			(text_button
+				:text "Panel Media"
+				:onclick "./widgets/scripts/toggle_variable panel_media_feature_enabled"
+				:toggled {panel_media_feature_enabled}
+			)
+		)
 	)
 )
