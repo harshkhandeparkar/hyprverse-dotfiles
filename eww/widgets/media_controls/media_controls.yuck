@@ -14,8 +14,10 @@
 
 	(box
 		:space-evenly false
-		(media_player_icon
-			:height 120
+		(image
+			:path {media_cover}
+			:image-height 120
+			:class "media-img"
 		)
 		(box
 			:orientation "vertical"

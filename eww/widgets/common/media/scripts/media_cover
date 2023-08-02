@@ -1,0 +1,13 @@
+media_cover_url=$(playerctl metadata mpris:artUrl)
+media_cover_id=$(playerctl metadata mpris:artUrl | rev | cut -d '/' -f1 | rev)
+
+media_storage_dir="/tmp"
+
+media_file="$media_storage_dir/$media_cover_id"
+if [ -f "$media_file" ];
+then
+	echo "$media_file"
+else
+	wget -P "$media_storage_dir" "$media_cover_url"
+	echo "$media_file"
+fi
