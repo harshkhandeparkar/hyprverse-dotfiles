@@ -17,7 +17,7 @@
 
 (defpoll media_cover
 	:initial "cover"
-	:interval "500ms"
+	:interval "1s"
 	`sh ./widgets/common/media/scripts/media_cover`
 )
 
