@@ -118,7 +118,7 @@
 				:toggled {workspace_status_indicator_shown}
 			)
 		)
-		(label :text "Features")
+		(label :text "Panel Features")
 		(box
 			:space-evenly false
 			:spacing 10
@@ -127,6 +127,11 @@
 				:text "Panel Media"
 				:onclick "./widgets/scripts/toggle_variable panel_media_feature_enabled"
 				:toggled {panel_media_feature_enabled}
+			)
+			(text_button
+				:text "Panel Date/Time"
+				:onclick "./widgets/scripts/toggle_variable panel_datetime_feature_enabled"
+				:toggled {panel_datetime_feature_enabled}
 			)
 		)
 	)

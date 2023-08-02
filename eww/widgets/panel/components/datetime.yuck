@@ -1,6 +1,8 @@
+(defvar panel_datetime_feature_enabled true)
 (defpoll time
 	:interval "1s"
 	:initial "TIME"
+	:run-while panel_datetime_feature_enabled
 	`date "+%a %b %d  %r"`
 )
 
@@ -9,6 +11,8 @@
 		:class "panel-date-time"
 		:cursor "pointer"
 		:onclick "widgets/scripts/toggle_window panel_calendar"
+		:visible {panel_datetime_feature_enabled}
+		:active {panel_datetime_feature_enabled}
 		(label
 			:text "${time}"
 		)
