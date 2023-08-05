@@ -5,7 +5,7 @@ path=($HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin $path)
 export PATH
 
 # VPN NetworkManager connection name
-export VPN_CONN_NAME=parker
+export VPN_CONN_NAME=gutlo
 
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
