@@ -1,11 +1,11 @@
 # VPN_CONN_NAME environment variable should be set
 
-status() {
+vpn_status() {
 	nmcli -g GENERAL.STATE con show "$VPN_CONN_NAME"
 }
 
-toggle() {
-	vpn_status=$(status)
+vpn_toggle() {
+	vpn_status=$(vpn_status)
 	if [[ "$vpn_status" == "activated" ]];
 	then
 		nmcli con down "$VPN_CONN_NAME"
@@ -16,8 +16,8 @@ toggle() {
 
 if [[ "$1" == "toggle" ]];
 then
-	toggle
+	vpn_toggle
 else
-	vpn_status=$(status)
-	echo $vpn_status
+	VPN_STATUS=$(vpn_status)
+	echo $VPN_STATUS
 fi
