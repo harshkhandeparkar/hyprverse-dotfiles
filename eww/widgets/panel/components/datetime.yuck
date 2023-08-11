@@ -2,7 +2,7 @@
 (defpoll time
 	:interval "1s"
 	:initial "TIME"
-	:run-while panel_datetime_feature_enabled
+	:run-while {panel_datetime_feature_enabled && panel_open}
 	`date "+%a %b %d  %r"`
 )
 

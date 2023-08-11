@@ -1,6 +1,7 @@
 (defpoll notif_count
 	:interval "500ms"
 	:initial "0"
+	:run-while {panel_open}
 	"swaync-client --count"
 )
 

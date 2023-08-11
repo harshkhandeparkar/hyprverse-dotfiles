@@ -1,6 +1,7 @@
 (defpoll vpn_status
 	:interval "100ms"
 	:initial ""
+	:run-while {panel_open}
 	"zsh ./widgets/panel/scripts/vpn status"
 )
 

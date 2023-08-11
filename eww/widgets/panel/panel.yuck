@@ -3,6 +3,7 @@
 (include "./widgets/panel/components/media.yuck")
 (include "./widgets/panel/components/right_buttons/right_buttons.yuck")
 
+(defvar panel_open true)
 (defwindow panel
 	:monitor 0
 	:geometry (geometry
@@ -17,11 +18,11 @@
 	:exclusive true
 
 	(centerbox
-		; (box
-		; 	:class "panel-left"
-		; 	:halign "start"
+		(box
+			:class "panel-left"
+			:halign "start"
 			(media)
-		; )
+		)
 		(box
 			:class "panel-center"
 			:halign "center"
