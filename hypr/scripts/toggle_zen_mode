@@ -1,0 +1,46 @@
+is_window_open() {
+	eww windows | sed -n "/\*${1}\$/p"
+}
+
+toggle_window() {
+	window_open=$(is_window_open "$1")
+
+	if [[ $window_open == "" ]];
+	then
+		eww open $1 && eww update "${1}_open=true"
+	else
+		eww close $1 && eww update "${1}_open=false"
+	fi
+}
+
+is_panel_open=$(is_window_open "panel")
+
+# Assuming panel not open = zen mode enabled
+if [[ $is_panel_open == "" ]];
+then
+	eww open panel
+
+	# Reload the config to change to defaults
+	hyprctl reload
+
+	# Turn off dnd
+	swaync-client --dnd-off
+else
+	# Close the panel
+	eww close panel
+
+	# Close all other windows
+	eww close quick_settings
+	eww close media_controls
+	eww close osd
+	eww close panel_calendar
+
+	# Turn on swaync dnd mode
+	swaync-client --dnd-on
+
+	# Toggle borders, rounding, gaps, animations
+	hyprctl keyword general:border_size 0
+	hyprctl keyword general:gaps_in 0
+	hyprctl keyword general:gaps_out 0
+	hyprctl keyword decoration:rounding 0
+fi
