@@ -1,4 +1,4 @@
-window_open=$(eww windows | grep "\*$1")
+window_open=$(eww windows | sed -n "/\*${1}\$/p")
 
 if [[ $window_open == "" ]];
 then
