@@ -1,5 +1,6 @@
 # Hyprverse
 Dotfiles for my Spiderverse-themed [Hyprland](https://hyprland.org) configuration on Arch Linux with NVIDIA dGPU + Intel CPU Laptop.
+![rofi](img/rofi.png)
 
 > **WARNING** Some information in this README is outdated.
 
@@ -72,6 +73,5 @@ See also: My personal [VSCode theme](https://github.com/harshkhandeparkar/person
 
 ### Images
 ![fastfetch](img/fastfetch.png)
-![rofi](img/rofi.png)
 ![cava-spotify](img/cava-spotify.png)
 ![sddm](img/sddm.png)
