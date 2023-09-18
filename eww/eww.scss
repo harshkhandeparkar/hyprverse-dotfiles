@@ -5,6 +5,10 @@
 @import './widgets/media_controls/media_controls';
 @import './widgets/quick_settings/quick_settings';
 
+* {
+	color: $text_color;
+}
+
 .bold {
 	font-weight: bold;
 }
