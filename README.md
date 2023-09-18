@@ -72,6 +72,5 @@ See also: My personal [VSCode theme](https://github.com/harshkhandeparkar/person
 - See [cava/README.md](./cava/README.md)
 
 ### Images
-![fastfetch](img/fastfetch.png)
 ![cava-spotify](img/cava-spotify.png)
 ![sddm](img/sddm.png)
