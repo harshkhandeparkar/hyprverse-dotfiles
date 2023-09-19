@@ -2,7 +2,7 @@ alias sucrow='sudo'
 alias yay!='yay'
 alias neofetch='fastfetch'
 alias cat='bat'
-alias ls='exa --icons --header'
+alias ls='eza --icons --header'
 
 # Git aliases
 alias checkout='git checkout'
