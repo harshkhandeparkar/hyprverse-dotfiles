@@ -9,9 +9,10 @@ remove_dirs() {
 	rm -r ~/.config/swaync
 	rm -r ~/.config/kitty
 	rm -r ~/.config/fastfetch
-	rm ~/.config/starship.toml
+	rm ~/.config/rofimoji.rc
 
 	# ZSH
+	rm ~/.config/starship.toml
 	rm ~/.zshrc
 	rm ~/.zshenv
 	rm ~/.zshbindings
@@ -32,6 +33,7 @@ install() {
 	$1 ./swaync ~/.config/
 	$1 ./kitty ~/.config/
 	$1 ./fastfetch ~/.config/
+	$1 ./rofimoji/rofimoji.rc ~/.config/rofimoji.rc
 
 	# ZSH
 	$1 ./zsh/starship.toml ~/.config/starship.toml
