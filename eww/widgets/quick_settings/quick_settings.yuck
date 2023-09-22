@@ -4,36 +4,8 @@
 (include "./widgets/quick_settings/components/header.yuck")
 (include "./widgets/quick_settings/components/divider.yuck")
 
-(defpoll output_volume
-	:initial 0.1
-	:interval "100ms"
-	:run-while quick_settings_open
-	"sh ./widgets/quick_settings/scripts/output_volume get"
-)
-(defpoll input_volume
-	:initial 0.1
-	:interval "100ms"
-	:run-while quick_settings_open
-	"sh ./widgets/quick_settings/scripts/input_volume get"
-)
-(defpoll brightness
-	:initial 0.1
-	:interval "100ms"
-	:run-while quick_settings_open
-	"sh ./widgets/quick_settings/scripts/brightness get"
-)
-(defpoll wifi_status
-	:initial 0.1
-	:interval "100ms"
-	:run-while quick_settings_open
-	"sh ./widgets/quick_settings/scripts/wifi status"
-)
-(defpoll eth_status
-	:initial 0.1
-	:interval "100ms"
-	:run-while quick_settings_open
-	"sh ./widgets/quick_settings/scripts/eth status"
-)
+(include "./widgets/quick_settings/sections/quick_toggles.yuck")
+(include "./widgets/quick_settings/sections/sliders.yuck")
 
 (defvar quick_settings_open false)
 (defwindow quick_settings
@@ -55,103 +27,9 @@
 		:spacing 10
 
 		(quick_settings_header)
-		(box
-			:space-evenly false
-			:spacing 10
-			:halign "center"
-			(icon_button
-				:icon "img/yaru-icons/network-wireless-signal-good-symbolic.svg"
-				:onclick "widgets/quick_settings/scripts/wifi toggle"
-				:tooltip "Toggle Wifi"
-				:enabled true
-				:toggled {wifi_status}
-			)
-			(icon_button
-				:icon {
-					eth_status == "unavailable" ? "img/yaru-icons/network-wired-offline-symbolic.svg" :
-					matches(eth_status, "connecting") ? "img/yaru-icons/network-wired-acquiring-symbolic.svg" : "img/yaru-icons/network-wired-symbolic.svg"
-				}
-				:onclick "widgets/quick_settings/scripts/eth toggle"
-				:tooltip "Toggle Ethernet"
-				:enabled {eth_status == "disconnected" || eth_status == "connected"}
-				:toggled {eth_status == "connected"}
-			)
-			(icon_button
-				:icon "img/yaru-icons/system-shutdown-symbolic.svg"
-				:onclick "shutdown -h now"
-				:tooltip "Shutdown..."
-				:enabled true
-				:toggled false
-			)
-			(icon_button
-				:icon "img/yaru-icons/system-reboot-symbolic.svg"
-				:onclick "shutdown -r now"
-				:tooltip "Shutdown..."
-				:enabled true
-				:toggled false
-			)
-		)
+		(quick_settings_quick_toggles)
+
 		(divider)
-		(slider_setting
-			:title "Output Volume"
-			:value {output_volume * 100}
-			:onchange "./widgets/quick_settings/scripts/output_volume set {}"
-			:icon "img/yaru-icons/audio-volume-low.svg"
-		)
-		(slider_setting
-			:title "Input Volume"
-			:value {input_volume * 100}
-			:onchange "./widgets/quick_settings/scripts/input_volume set {}"
-			:icon "img/yaru-icons/audio-input-microphone.svg"
-		)
-		(slider_setting
-			:title "Brightness"
-			:value {brightness}
-			:onchange "./widgets/quick_settings/scripts/brightness set {}"
-			:icon "img/yaru-icons/display-brightness-symbolic.svg"
-		)
-		(divider)
-		(label :text "Panel Status Indicators")
-		(box
-			:space-evenly false
-			:spacing 10
-			:halign "center"
-			(text_button
-				:text "CPU"
-				:onclick "./widgets/scripts/toggle_variable cpu_status_indicator_shown"
-				:toggled {cpu_status_indicator_shown}
-			)
-			(text_button
-				:text "RAM"
-				:onclick "./widgets/scripts/toggle_variable ram_status_indicator_shown"
-				:toggled {ram_status_indicator_shown}
-			)
-			(text_button
-				:text "Battery"
-				:onclick "./widgets/scripts/toggle_variable batt_status_indicator_shown"
-				:toggled {batt_status_indicator_shown}
-			)
-			(text_button
-				:text "Workspace"
-				:onclick "./widgets/scripts/toggle_variable workspace_status_indicator_shown"
-				:toggled {workspace_status_indicator_shown}
-			)
-		)
-		(label :text "Panel Features")
-		(box
-			:space-evenly false
-			:spacing 10
-			:halign "center"
-			(text_button
-				:text "Panel Media"
-				:onclick "./widgets/scripts/toggle_variable panel_media_feature_enabled"
-				:toggled {panel_media_feature_enabled}
-			)
-			(text_button
-				:text "Panel Date/Time"
-				:onclick "./widgets/scripts/toggle_variable panel_datetime_feature_enabled"
-				:toggled {panel_datetime_feature_enabled}
-			)
-		)
+		(quick_settings_sliders)
 	)
 )

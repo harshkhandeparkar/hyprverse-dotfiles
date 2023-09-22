@@ -1,0 +1,43 @@
+(defpoll output_volume
+	:initial 0.1
+	:interval "100ms"
+	:run-while quick_settings_open
+	"sh ./widgets/quick_settings/scripts/output_volume get"
+)
+(defpoll input_volume
+	:initial 0.1
+	:interval "100ms"
+	:run-while quick_settings_open
+	"sh ./widgets/quick_settings/scripts/input_volume get"
+)
+(defpoll brightness
+	:initial 0.1
+	:interval "100ms"
+	:run-while quick_settings_open
+	"sh ./widgets/quick_settings/scripts/brightness get"
+)
+
+(defwidget quick_settings_sliders[]
+	(box
+		:orientation "vertical"
+
+		(slider_setting
+			:title "Output Volume"
+			:value {output_volume * 100}
+			:onchange "./widgets/quick_settings/scripts/output_volume set {}"
+			:icon "img/yaru-icons/audio-volume-low.svg"
+		)
+		(slider_setting
+			:title "Input Volume"
+			:value {input_volume * 100}
+			:onchange "./widgets/quick_settings/scripts/input_volume set {}"
+			:icon "img/yaru-icons/audio-input-microphone.svg"
+		)
+		(slider_setting
+			:title "Brightness"
+			:value {brightness}
+			:onchange "./widgets/quick_settings/scripts/brightness set {}"
+			:icon "img/yaru-icons/display-brightness-symbolic.svg"
+		)
+	)
+)

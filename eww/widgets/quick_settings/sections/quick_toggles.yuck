@@ -1,0 +1,51 @@
+(defpoll wifi_status
+	:initial 0.1
+	:interval "100ms"
+	:run-while quick_settings_open
+	"sh ./widgets/quick_settings/scripts/wifi status"
+)
+(defpoll eth_status
+	:initial 0.1
+	:interval "100ms"
+	:run-while quick_settings_open
+	"sh ./widgets/quick_settings/scripts/eth status"
+)
+
+(defwidget quick_settings_quick_toggles[]
+	(box
+		:space-evenly false
+		:spacing 10
+		:halign "center"
+		(icon_button
+			:icon "img/yaru-icons/network-wireless-signal-good-symbolic.svg"
+			:onclick "widgets/quick_settings/scripts/wifi toggle"
+			:tooltip "Toggle Wifi"
+			:enabled true
+			:toggled {wifi_status}
+		)
+		(icon_button
+			:icon {
+				eth_status == "unavailable" ? "img/yaru-icons/network-wired-offline-symbolic.svg" :
+				matches(eth_status, "connecting") ? "img/yaru-icons/network-wired-acquiring-symbolic.svg" : "img/yaru-icons/network-wired-symbolic.svg"
+			}
+			:onclick "widgets/quick_settings/scripts/eth toggle"
+			:tooltip "Toggle Ethernet"
+			:enabled {eth_status == "disconnected" || eth_status == "connected"}
+			:toggled {eth_status == "connected"}
+		)
+		(icon_button
+			:icon "img/yaru-icons/system-shutdown-symbolic.svg"
+			:onclick "shutdown -h now"
+			:tooltip "Shutdown..."
+			:enabled true
+			:toggled false
+		)
+		(icon_button
+			:icon "img/yaru-icons/system-reboot-symbolic.svg"
+			:onclick "shutdown -r now"
+			:tooltip "Shutdown..."
+			:enabled true
+			:toggled false
+		)
+	)
+)
