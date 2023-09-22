@@ -1,17 +1,18 @@
 image=.backgrounds/miles-morales-4.jpg
 clock
+timestr=%I:%M %p
+datestr=%a, %d %b %Y
 
 indicator
-indicator-radius=150
-indicator-thickness=2
+indicator-radius=130
+indicator-thickness=1
 
-disable-caps-lock-text
-
-effect-blur=7x5
-fade-in=0.1
+fade-in=0.3
+effect-blur=24x1
 
 inside-color=00000044
 inside-clear-color=00000044
+inside-caps-lock-color=00000044
 inside-ver-color=00000044
 inside-wrong-color=00000044
 
@@ -30,7 +31,8 @@ ring-caps-lock-color=00000000
 text-color=ffffffcc
 text-clear-color=ffffffcc
 text-ver-color=ffffffcc
-text-wrong-color=ff270add
+text-wrong-color=ffffffcc
+text-caps-lock-color=ffffffcc
 
 key-hl-color=fa81ffaa
 
