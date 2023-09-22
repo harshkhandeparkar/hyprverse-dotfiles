@@ -1,0 +1,29 @@
+(defwidget dropdown[toggled toggle_variable_name title]
+	(box
+		:orientation "vertical"
+		:space-evenly false
+		:spacing 10
+
+		(eventbox
+			:cursor "pointer"
+			:onclick "sh ./widgets/scripts/toggle_variable ${toggle_variable_name}"
+
+			(box
+				:space-evenly false
+				:spacing 5
+
+				(label
+					:text "Wifi"
+				)
+				(label
+					:text {toggled ? "▼" : "▶"}
+				)
+			)
+		)
+		(revealer
+			:transition "slidedown"
+			:reveal {toggled}
+			"Wifi selector"
+		)
+	)
+)

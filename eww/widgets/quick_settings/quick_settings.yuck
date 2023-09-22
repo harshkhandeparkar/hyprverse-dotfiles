@@ -3,9 +3,11 @@
 (include "./widgets/quick_settings/components/text_button.yuck")
 (include "./widgets/quick_settings/components/header.yuck")
 (include "./widgets/quick_settings/components/divider.yuck")
+(include "./widgets/quick_settings/components/dropdown.yuck")
 
 (include "./widgets/quick_settings/sections/quick_toggles.yuck")
 (include "./widgets/quick_settings/sections/sliders.yuck")
+(include "./widgets/quick_settings/sections/wifi.yuck")
 
 (defvar quick_settings_open false)
 (defwindow quick_settings
@@ -31,5 +33,8 @@
 
 		(divider)
 		(quick_settings_sliders)
+
+		(divider)
+		(quick_settings_wifi)
 	)
 )

@@ -1,0 +1,9 @@
+(defvar quick_settings_wifi_toggled false)
+
+(defwidget quick_settings_wifi[]
+	(dropdown
+		:toggled {quick_settings_wifi_toggled}
+		:toggle_variable_name "quick_settings_wifi_toggled"
+		:title "Wifi"
+	)
+)
