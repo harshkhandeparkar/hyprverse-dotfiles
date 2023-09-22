@@ -1,0 +1,27 @@
+get_eth_status() {
+	nmcli -t -f type,state device status | grep ethernet | cut -d : -f2
+}
+
+get_eth_device_name() {
+	nmcli -t -f type,device device status | grep ethernet | cut -d : -f2
+}
+
+toggle_eth() {
+	eth_status=$(get_eth_status)
+	eth_device_name=$(get_eth_device_name)
+
+	if [[ $eth_status == "disconnected" ]];
+	then
+		nmcli device connect "$eth_device_name"
+	else
+		nmcli device disconnect "$eth_device_name"
+	fi
+}
+
+if [[ "$1" == "status" ]];
+then
+	get_eth_status
+elif [[ "$1" == "toggle" ]];
+then
+	toggle_eth
+fi

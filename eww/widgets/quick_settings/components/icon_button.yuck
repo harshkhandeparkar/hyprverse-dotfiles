@@ -1,10 +1,11 @@
-(defwidget icon_button[icon onclick tooltip toggled]
+(defwidget icon_button[icon onclick tooltip toggled enabled]
 	(eventbox
 		:class "btn icon-btn ${toggled ? 'btn-active' : ''}"
 		:height 50
 		:width 50
 		:cursor "pointer"
 		:tooltip {tooltip}
+		:active {enabled}
 		(button
 			:onclick {onclick}
 			(image
