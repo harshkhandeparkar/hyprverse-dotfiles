@@ -1,9 +1,9 @@
-(defvar quick_settings_wifi_toggled true)
+(defvar quick_settings_wifi_toggled false)
 
 (defpoll available_wifi_networks
 	:initial "[]"
 	:interval "2s"
-	:run-while quick_settings_open
+	:run-while {wifi_status && quick_settings_open}
 	"sh ./widgets/quick_settings/scripts/wifi list"
 )
 
@@ -32,7 +32,8 @@
 				(for network in available_wifi_networks
 					(eventbox
 						:cursor "pointer"
-						:class "list-item ${network.active ? 'active' : ''}"
+						:class "list-item"
+						:visible {!network.active}
 
 						(box
 							:hexpand true
