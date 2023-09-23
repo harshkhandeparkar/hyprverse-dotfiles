@@ -1,29 +1,40 @@
-(defwidget dropdown[toggled toggle_variable_name title]
-	(box
-		:orientation "vertical"
-		:space-evenly false
-		:spacing 10
+(defwidget dropdown[toggled toggle_variable_name title icon]
+  (box
+    :orientation "vertical"
+    :space-evenly false
+    :spacing 10
+    :class "dropdown ${toggled ? 'active' : ''}"
 
-		(eventbox
-			:cursor "pointer"
-			:onclick "sh ./widgets/scripts/toggle_variable ${toggle_variable_name}"
+    (eventbox
+      :cursor "pointer"
+      :onclick "sh ./widgets/scripts/toggle_variable ${toggle_variable_name}"
+	  :class "dropdown-title"
 
-			(box
-				:space-evenly false
-				:spacing 5
+      (box
+        :space-evenly false
+        :spacing 10
 
-				(label
-					:text "Wifi"
-				)
-				(label
-					:text {toggled ? "▼" : "▶"}
-				)
-			)
-		)
-		(revealer
-			:transition "slidedown"
-			:reveal {toggled}
-			"Wifi selector"
-		)
-	)
+        (image
+          :path {icon}
+          :image-height 15
+          :image-width 15
+		  :class "dropdown-title-img"
+        )
+        (label
+          :text {title}
+        )
+        (label
+          :text {toggled ? "▼" : "▶"}
+          :style "margin-left: auto;"
+		  :halign "end"
+		  :hexpand true
+        )
+      )
+    )
+    (revealer
+      :transition "slidedown"
+      :reveal {toggled}
+      "Wifi selector"
+    )
+  )
 )

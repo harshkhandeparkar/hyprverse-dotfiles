@@ -4,6 +4,7 @@
 	(dropdown
 		:toggled {quick_settings_wifi_toggled}
 		:toggle_variable_name "quick_settings_wifi_toggled"
-		:title "Wifi"
+		:title "Wi-Fi"
+		:icon "img/yaru-icons/network-wireless-signal-good-symbolic.svg"
 	)
 )
