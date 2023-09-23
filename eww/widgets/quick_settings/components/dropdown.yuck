@@ -5,36 +5,45 @@
     :spacing 10
     :class "dropdown ${toggled ? 'active' : ''}"
 
-    (eventbox
-      :cursor "pointer"
-      :onclick "sh ./widgets/scripts/toggle_variable ${toggle_variable_name}"
-	  :class "dropdown-title"
+    (box
+      :space-evenly false
+      :spacing 10
+      :class "dropdown-title"
+      :hexpand true
 
-      (box
-        :space-evenly false
-        :spacing 10
+      (eventbox
+        :cursor "pointer"
+        :onclick "sh ./widgets/scripts/toggle_variable ${toggle_variable_name}"
+        :hexpand true
 
-        (image
-          :path {icon}
-          :image-height 15
-          :image-width 15
-		  :class "dropdown-title-img"
-        )
-        (label
-          :text {title}
-        )
-        (label
-          :text {toggled ? "▼" : "▶"}
-          :style "margin-left: auto;"
-		  :halign "end"
-		  :hexpand true
+        (box
+          :space-evenly false
+          :spacing 10
+
+          (image
+            :path {icon}
+            :image-height 15
+            :image-width 15
+            :class "dropdown-title-img"
+          )
+          (label
+            :text {title}
+          )
+          (label
+            :text {toggled ? "▼" : "▶"}
+            :style "margin-left: auto;"
+            :halign "end"
+            :hexpand true
+          )
         )
       )
     )
     (revealer
       :transition "slidedown"
       :reveal {toggled}
-      "Wifi selector"
+      :class "dropdown-revealer"
+
+      (children)
     )
   )
 )

@@ -49,16 +49,21 @@
 		border-radius: $border_radius;
 		background-color: rgba(0, 0, 0, 0.3);
 
-		padding: 7px 15px 0px 15px;
+		// padding: 7px 15px 0px 15px;
 
 		.dropdown-title {
 			font-size: 1.2rem;
 			font-weight: bold;
+
+			padding: 5px 10px;
+			border-radius: $border_radius $border_radius 0 0 ;
 		}
 	}
 
 	.dropdown.active {
-		background-color: rgba($accent_color, 0.2);
+		.dropdown-title {
+			background-color: rgba($accent_color, 0.2);
+		}
 	}
 	// DROPDOWN
 }

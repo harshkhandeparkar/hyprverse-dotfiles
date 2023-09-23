@@ -20,10 +20,18 @@ toggle_wifi() {
 	fi
 }
 
+get_wifi_list() {
+	# Thanks to https://unix.stackexchange.com/questions/399222/parse-colon-separated-value-pairs-nmcli-output-and-convert-to-json-fromat#399718
+	nmcli -f ssid,bars -t device wifi | sed -z '$ s/\n$//' | jq -sR 'split("\n") | map(split(":")) | map({"network": .[0], "bars": .[1]})'
+}
+
 if [[ "$1" == "status" ]];
 then
 	get_wifi_status
 elif [[ "$1" == "toggle" ]];
 then
 	toggle_wifi
+elif [[ "$1" == "list" ]];
+then
+	get_wifi_list
 fi

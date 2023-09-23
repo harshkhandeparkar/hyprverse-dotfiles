@@ -1,10 +1,40 @@
 (defvar quick_settings_wifi_toggled false)
 
+(defpoll available_wifi_networks
+	:initial ""
+	:interval "500ms"
+	:run-while quick_settings_open
+	"sh ./widgets/quick_settings/scripts/wifi list"
+)
+
 (defwidget quick_settings_wifi[]
-	(dropdown
-		:toggled {quick_settings_wifi_toggled}
-		:toggle_variable_name "quick_settings_wifi_toggled"
-		:title "Wi-Fi"
-		:icon "img/yaru-icons/network-wireless-signal-good-symbolic.svg"
+	(box
+		:visible {wifi_status}
+		:spacing 0
+		:space-evenly false
+		:hexpand true
+		:orientation "vertical"
+
+		(dropdown
+			:toggled {quick_settings_wifi_toggled}
+			:toggle_variable_name "quick_settings_wifi_toggled"
+			:title "Wi-Fi"
+			:icon "img/yaru-icons/network-wireless-signal-good-symbolic.svg"
+
+			(box
+				:orientation "vertical"
+				:space-evenly false
+				:hexpand true
+
+				(for network in available_wifi_networks
+					(button
+						:halign "start"
+						:hexpand true
+
+						"${network.network}"
+					)
+				)
+			)
+		)
 	)
 )
