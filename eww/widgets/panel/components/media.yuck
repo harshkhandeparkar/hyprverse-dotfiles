@@ -17,6 +17,7 @@
 			:path "img/yaru-icons/media-playback-pause-symbolic.svg"
 			:visible {media_status == "Paused"}
 			:valign "center"
+			:style "margin-left: 5px;"
 		)
 	)
 )
