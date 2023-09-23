@@ -1,8 +1,8 @@
-(defvar quick_settings_wifi_toggled false)
+(defvar quick_settings_wifi_toggled true)
 
 (defpoll available_wifi_networks
-	:initial ""
-	:interval "500ms"
+	:initial "[]"
+	:interval "2s"
 	:run-while quick_settings_open
 	"sh ./widgets/quick_settings/scripts/wifi list"
 )
@@ -14,24 +14,39 @@
 		:space-evenly false
 		:hexpand true
 		:orientation "vertical"
+		:class "quick-settings-wifi"
 
 		(dropdown
 			:toggled {quick_settings_wifi_toggled}
 			:toggle_variable_name "quick_settings_wifi_toggled"
-			:title "Wi-Fi"
-			:icon "img/yaru-icons/network-wireless-signal-good-symbolic.svg"
+			:title {available_wifi_networks[0].active ? available_wifi_networks[0].ssid : "Wi-Fi"}
+			:icon "img/yaru-icons/network-wireless-symbolic.svg"
 
 			(box
 				:orientation "vertical"
-				:space-evenly false
+				:space-evenly true
+				:spacing 10
 				:hexpand true
+				:class "wifi-networks-list"
 
 				(for network in available_wifi_networks
-					(button
-						:halign "start"
-						:hexpand true
+					(eventbox
+						:cursor "pointer"
+						:class "list-item ${network.active ? 'active' : ''}"
 
-						"${network.network}"
+						(box
+							:hexpand true
+							:space-evenly false
+							:spacing 10
+
+							(image
+								:path "img/yaru-icons/network-wireless-symbolic.svg"
+							)
+							(label
+								:text "${network.signal} ${network.ssid}"
+								:halign "start"
+							)
+						)
 					)
 				)
 			)

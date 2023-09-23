@@ -2,7 +2,6 @@
   (box
     :orientation "vertical"
     :space-evenly false
-    :spacing 10
     :class "dropdown ${toggled ? 'active' : ''}"
 
     (box
@@ -22,8 +21,8 @@
 
           (image
             :path {icon}
-            :image-height 15
-            :image-width 15
+            :image-height 20
+            :image-width 20
             :class "dropdown-title-img"
           )
           (label
@@ -38,6 +37,7 @@
         )
       )
     )
+
     (revealer
       :transition "slidedown"
       :reveal {toggled}
