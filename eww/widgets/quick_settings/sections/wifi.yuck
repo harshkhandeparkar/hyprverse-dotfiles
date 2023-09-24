@@ -33,7 +33,7 @@
 					(eventbox
 						:cursor "pointer"
 						:class "list-item"
-						:visible {!network.active}
+						:onclick "nmcli connection up ${network.ssid}"
 
 						(box
 							:hexpand true
@@ -46,6 +46,13 @@
 							(label
 								:text "${network.signal} ${network.ssid}"
 								:halign "start"
+							)
+							(label
+								:text "⏺"
+								:class "wifi-connected-indicator"
+								:halign "end"
+								:hexpand true
+								:visible {network.active}
 							)
 						)
 					)

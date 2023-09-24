@@ -72,10 +72,13 @@
 	// WIFI SECTION
 	.quick-settings-wifi {
 		.wifi-networks-list {
-
 			.list-item {
 				box {
 					padding: 10px 15px;
+				}
+
+				.wifi-connected-indicator {
+					color: $accent_color;
 				}
 			}
 
