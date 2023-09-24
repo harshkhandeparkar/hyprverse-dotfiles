@@ -4,36 +4,32 @@
     :space-evenly false
     :class "dropdown ${toggled ? 'active' : ''}"
 
-    (box
-      :space-evenly false
-      :spacing 10
-      :class "dropdown-title"
+    (eventbox
+      :cursor "pointer"
+      :onclick "sh ./widgets/scripts/toggle_variable ${toggle_variable_name}"
+      :class "dropdown-title-eventbox"
       :hexpand true
 
-      (eventbox
-        :cursor "pointer"
-        :onclick "sh ./widgets/scripts/toggle_variable ${toggle_variable_name}"
+      (box
+        :space-evenly false
+        :spacing 10
+        :class "dropdown-title"
         :hexpand true
 
-        (box
-          :space-evenly false
-          :spacing 10
-
-          (image
-            :path {icon}
-            :image-height 20
-            :image-width 20
-            :class "dropdown-title-img"
-          )
-          (label
-            :text {title}
-          )
-          (label
-            :text {toggled ? "▼" : "▶"}
-            :style "margin-left: auto;"
-            :halign "end"
-            :hexpand true
-          )
+        (image
+          :path {icon}
+          :image-height 20
+          :image-width 20
+          :class "dropdown-title-img"
+        )
+        (label
+          :text {title}
+        )
+        (label
+          :text {toggled ? "▼" : "▶"}
+          :style "margin-left: auto;"
+          :halign "end"
+          :hexpand true
         )
       )
     )

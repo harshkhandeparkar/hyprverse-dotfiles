@@ -56,8 +56,11 @@
 			padding: 8px 15px;
 			border-radius: $border_radius $border_radius 0 0;
 		}
-	}
 
+		.dropdown-title-eventbox:hover .dropdown-title {
+			background-color: $hover_color;
+		}
+	}
 
 	.dropdown.active {
 		.dropdown-title {
