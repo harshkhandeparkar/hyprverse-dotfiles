@@ -25,7 +25,7 @@
 			(box
 				:orientation "vertical"
 				:space-evenly true
-				:spacing 10
+				:spacing 0
 				:hexpand true
 				:class "wifi-networks-list"
 

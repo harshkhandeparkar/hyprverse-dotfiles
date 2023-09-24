@@ -1,9 +1,9 @@
 get_eth_status() {
-	nmcli -t -f type,state device status | grep ethernet | cut -d : -f2
+	nmcli -t -f type,state device status | grep ethernet | cut -d : -f2 | head -n1
 }
 
 get_eth_device_name() {
-	nmcli -t -f type,device device status | grep ethernet | cut -d : -f2
+	nmcli -t -f type,device device status | grep ethernet | cut -d : -f2 | head -n1
 }
 
 toggle_eth() {
