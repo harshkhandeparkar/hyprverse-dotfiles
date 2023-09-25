@@ -1,6 +1,29 @@
 # Remove existing config directories
 remove_dirs() {
 	# .config
+	rm -r ~/.config/cava
+	rm -r ~/.config/eww
+	rm -r ~/.config/hypr
+	rm -r ~/.config/rofi
+	rm -r ~/.config/swaylock
+	rm -r ~/.config/swaync
+	rm -r ~/.config/kitty
+	rm -r ~/.config/fastfetch
+	rm ~/.config/rofimoji.rc
+
+	# ZSH
+	rm ~/.config/starship.toml
+	rm ~/.zshrc
+	rm ~/.zshenv
+	rm ~/.zshbindings
+	rm ~/.zshaliases
+
+	sudo rm /etc/sddm.conf
+	sudo rm -r /etc/sddm-themes
+}
+
+copy_dirs() {
+	# .config
 	mv -r ~/.config/cava ~/.config/cava.old
 	mv -r ~/.config/eww ~/.config/eww.old
 	mv -r ~/.config/hypr ~/.config/hypr.old
@@ -48,9 +71,19 @@ install() {
 
 if [[ "$1" == "--copy" ]];
 then
-	remove_dirs
+	if [[ "$2" == "--delete" ]];
+ 	then
+ 		remove_dirs
+	 else
+		copy_dirs
+	fi
 	install "cp -r"
 else
-	remove_dirs
+	if [[ "$1" == "--delete" ]];
+ 	then
+ 		remove_dirs
+	 else
+		copy_dirs
+	fi
 	install "ln -srf"
 fi
