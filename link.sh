@@ -1,25 +1,25 @@
 # Remove existing config directories
 remove_dirs() {
 	# .config
-	rm -r ~/.config/cava
-	rm -r ~/.config/eww
-	rm -r ~/.config/hypr
-	rm -r ~/.config/rofi
-	rm -r ~/.config/swaylock
-	rm -r ~/.config/swaync
-	rm -r ~/.config/kitty
-	rm -r ~/.config/fastfetch
-	rm ~/.config/rofimoji.rc
+	mv -r ~/.config/cava ~/.config/cava.old
+	mv -r ~/.config/eww ~/.config/eww.old
+	mv -r ~/.config/hypr ~/.config/hypr.old
+	mv -r ~/.config/rofi ~/.config/rofi.old
+	mv -r ~/.config/swaylock ~/.config/swaylock.old
+	mv -r ~/.config/swaync ~/.config/swaync.old
+	mv -r ~/.config/kitty ~/.config/kitty.old
+	mv -r ~/.config/fastfetch ~/.config/fastfetch.old
+	mv ~/.config/rofimoji.rc ~/.config/rofimoji.rc.old
 
 	# ZSH
-	rm ~/.config/starship.toml
-	rm ~/.zshrc
-	rm ~/.zshenv
-	rm ~/.zshbindings
-	rm ~/.zshaliases
+	mv ~/.config/starship.toml ~/.config/starship.toml.old
+	mv ~/.zshrc ~/.zshrc.old
+	mv ~/.zshenv ~/.zshenv.old
+	mv ~/.zshbindings ~/.zshbindings.old
+	mv ~/.zshaliases ~/.zshaliases.old
 
-	sudo rm /etc/sddm.conf
-	sudo rm -r /etc/sddm-themes
+	sudo mv /etc/sddm.conf /etc/sddm.conf.old
+	sudo mv -r /etc/sddm-themes /etc/sddm-themes.old
 }
 
 # $1: command for installing
