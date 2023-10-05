@@ -20,9 +20,19 @@ toggle_wifi() {
 	fi
 }
 
-get_wifi_list() {
+get_available_wifi_list() {
 	# Thanks to https://unix.stackexchange.com/questions/399222/parse-colon-separated-value-pairs-nmcli-output-and-convert-to-json-fromat#399718
-	nmcli -f ssid,active,signal -t device wifi | sed -z '$ s/\n$//' | jq -sR 'split("\n") | map(split(":")) | map({"ssid": .[0], "active": (.[1] == "yes"), "signal": .[2]}) | sort_by(.active, .signal) | reverse'
+	nmcli -f ssid,active,signal -t device wifi | sed -z '$ s/\n$//' | jq -csR 'split("\n") | map(split(":")) | map({"ssid": .[0], "active": (.[1] == "yes"), "signal": .[2]}) | sort_by(.active, .signal) | reverse'
+}
+
+get_saved_wifi_conn_list() {
+	nmcli -t -f type,name,state conn show | grep 802-11-wireless | sed -z '$ s/\n$//' | jq -csR 'split("\n") | map(split(":")) | map({"ssid": .[1], "state": .[2]})'
+}
+
+get_available_saved_conn_list() {
+	for network in $(get_saved_wifi_conn_list | jq -r '.[].ssid'); do
+		echo $network
+	done
 }
 
 if [[ "$1" == "status" ]];
@@ -31,7 +41,13 @@ then
 elif [[ "$1" == "toggle" ]];
 then
 	toggle_wifi
+elif [[ "$1" == "listconn" ]];
+then
+	get_saved_wifi_conn_list
 elif [[ "$1" == "list" ]];
 then
-	get_wifi_list
+	get_available_wifi_list
+elif [[ "$1" == "listavailable" ]];
+then
+	get_available_saved_conn_list
 fi

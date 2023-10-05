@@ -14,35 +14,43 @@ is_muted() {
 	fi
 }
 
+get_audio_level() {
+	wpctl get-volume @DEFAULT_AUDIO_SINK@ | cut -d ' ' -f2
+}
+
+get_brightness_level() {
+	echo $(($(brightnessctl get) * 100 / $(brightnessctl max)))
+}
+
 # For Wireplumber
 case $1 in
 "audio-up")
 	wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
-	eww update audio_level=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | cut -d ' ' -f2)
+	eww update audio_level=$(get_audio_level)
 
 	osd audio
 ;;
 "audio-down")
 	wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
-	eww update audio_level=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | cut -d ' ' -f2)
+	eww update audio_level=$(get_audio_level)
 
 	osd audio
 ;;
 "audio-mute")
 	wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-	eww update audio_mute=$(is_muted)
+	eww update audio_level=$(get_audio_level) audio_mute=$(is_muted)
 
 	osd audio
 ;;
 "brightness-up")
 	brightnessctl set 5%+
-	eww update brightness_level=$(($(brightnessctl get) * 100 / $(brightnessctl max)))
+	eww update brightness_level=$(get_brightness_level)
 
 	osd brightness
 ;;
 "brightness-down")
 	brightnessctl set 5%-
-	eww update brightness_level=$(($(brightnessctl get) * 100 / $(brightnessctl max)))
+	eww update brightness_level=$(get_brightness_level)
 
 	osd brightness
 ;;

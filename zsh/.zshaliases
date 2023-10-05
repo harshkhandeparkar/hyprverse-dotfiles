@@ -3,6 +3,7 @@ alias yay!='yay'
 alias neofetch='fastfetch'
 alias cat='bat'
 alias ls='eza --icons --header'
+alias ssh='kitty +kitten ssh'
 
 # Git aliases
 alias checkout='git checkout'
