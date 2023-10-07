@@ -33,7 +33,7 @@
 					(eventbox
 						:cursor "pointer"
 						:class "list-item"
-						:onclick "nmcli connection up ${network.ssid}"
+						:onclick "nmcli connection up '${network.ssid}'"
 
 						(box
 							:hexpand true
