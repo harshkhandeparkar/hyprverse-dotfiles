@@ -41,10 +41,16 @@
 							:spacing 10
 
 							(image
-								:path "img/yaru-icons/network-wireless-symbolic.svg"
+								:path {
+									network.signal > 90 ? "img/yaru-icons/network-wireless-signal-excellent-symbolic.svg" :
+									network.signal > 80 ? "img/yaru-icons/network-wireless-signal-good-symbolic.svg" :
+									network.signal > 70 ? "img/yaru-icons/network-wireless-signal-ok-symbolic.svg" :
+									network.signal > 60 ? "img/yaru-icons/network-wireless-signal-weak-symbolic.svg" :
+									"img/yaru-icons/network-wireless-signal-none-symbolic.svg"
+								}
 							)
 							(label
-								:text "${network.signal} ${network.ssid}"
+								:text "${network.ssid}"
 								:halign "start"
 							)
 							(label
