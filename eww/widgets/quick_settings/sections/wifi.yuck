@@ -20,7 +20,15 @@
 			:toggled {quick_settings_wifi_toggled}
 			:toggle_variable_name "quick_settings_wifi_toggled"
 			:title {available_wifi_networks[0].active ? available_wifi_networks[0].ssid : "Wi-Fi"}
-			:icon "img/yaru-icons/network-wireless-symbolic.svg"
+				:icon {
+					available_wifi_networks[0].active ? (
+						available_wifi_networks[0].signal > 90 ? "img/yaru-icons/network-wireless-signal-excellent-symbolic.svg" :
+						available_wifi_networks[0].signal > 80 ? "img/yaru-icons/network-wireless-signal-good-symbolic.svg" :
+						available_wifi_networks[0].signal > 70 ? "img/yaru-icons/network-wireless-signal-ok-symbolic.svg" :
+						available_wifi_networks[0].signal > 60 ? "img/yaru-icons/network-wireless-signal-weak-symbolic.svg" :
+						"img/yaru-icons/network-wireless-signal-none-symbolic.svg"
+					) : "img/yaru-icons/network-wireless-symbolic.svg"
+				}
 
 			(box
 				:orientation "vertical"
