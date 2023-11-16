@@ -16,7 +16,7 @@
 		:x "20px"
 		:y "20px"
 		:width "23%"
-		:height "995px"
+;		:height "995px"
 		:anchor "top right"
 	)
 	:stacking "overlay"

@@ -9,7 +9,7 @@
 	:geometry (geometry
 		:x "0%"
 		:y "0%"
-		:width "1880px"
+		:width "1900px"
 		:height "35px"
 		:anchor "top center"
 	)
