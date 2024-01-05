@@ -1,0 +1,21 @@
+(defpoll hyprsplash_content
+	:interval "1s"
+	:initial ""
+	:run-while {hyprsplash_content != ""}
+	`hyprctl splash`
+)
+
+(defwindow hyprsplash
+	:monitor 0
+	:geometry (geometry
+		:y "10px"
+		:anchor "bottom center"
+	)
+	:stacking "bg"
+	:focusable false
+	:exclusive false
+
+	(label
+		:text "“${hyprsplash_content}”"
+	)
+)

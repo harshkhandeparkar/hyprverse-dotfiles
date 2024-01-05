@@ -1,0 +1,10 @@
+.hyprsplash {
+	background: color.change($accent_color, $lightness:10, $alpha:0.4);
+	border-radius: $border_radius;
+
+	label {
+		font-size: 1.8rem;
+		padding: 5px 15px;
+		font-weight: bold;
+	}
+}
