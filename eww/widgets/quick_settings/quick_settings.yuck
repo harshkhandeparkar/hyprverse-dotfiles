@@ -13,8 +13,8 @@
 (defwindow quick_settings
 	:monitor 0
 	:geometry (geometry
-		:x "20px"
-		:y "20px"
+		:x "10px"
+		:y "10px"
 		:width "23%"
 ;		:height "995px"
 		:anchor "top right"

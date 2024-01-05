@@ -2,8 +2,8 @@
 (defwindow media_controls
 	:monitor 0
 	:geometry (geometry
-		:x "20px"
-		:y "20px"
+		:x "10px"
+		:y "10px"
 		:width "400px"
 		:anchor "top left"
 	)
