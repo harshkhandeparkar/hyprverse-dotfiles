@@ -4,8 +4,7 @@
 	:geometry (geometry
 		:x "20px"
 		:y "20px"
-		:width "500px"
-		:height "120px"
+		:width "400px"
 		:anchor "top left"
 	)
 	:stacking "fg"
@@ -13,12 +12,9 @@
 	:exclusive true
 
 	(box
+		:class "media-box"
+		:style "background-image: url('${media_cover}')"
 		:space-evenly false
-		(image
-			:path {media_cover}
-			:image-height 120
-			:class "media-img"
-		)
 		(box
 			:orientation "vertical"
 			:hexpand true

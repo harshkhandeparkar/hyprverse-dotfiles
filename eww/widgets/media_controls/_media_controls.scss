@@ -3,6 +3,13 @@
 	border: $border;
 	border-radius: $border_radius;
 
+	.media-box {
+		background-repeat: no-repeat;
+		background-size: 100% auto;
+		background-position: center;
+		border-radius: $border_radius;
+	}
+
 	.media-title {
 		font-size: 1.3em;
 	}
@@ -13,6 +20,10 @@
 
 	.controls-box {
 		padding: 20px 20px 20px 10px;
+		border-radius: $border_radius;
+		background-color: rgba(0, 0, 0, 0.7);
+		border: $border;
+		border-color: color.change($border_color, $alpha: 0.3);
 	}
 
 	.media-img {
@@ -27,8 +38,8 @@
 	}
 
 	.media-control-btn:nth-child(2) {
-		border-right: 1px solid $border_color;
-		border-left: 1px solid $border_color;
+		border-right: 1px solid color.change($border_color, $alpha: 1);
+		border-left: 1px solid color.change($border_color, $alpha: 1);
 	}
 
 	.media-control-btn:nth-child(2):hover {
