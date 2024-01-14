@@ -37,7 +37,7 @@ window {
     orientation:      horizontal;
     location:         center;
     anchor:           center;
-    background-color: rgba(11, 11, 11, 50%);
+    background-color: rgba(45, 19, 45, 0.5);
     border:           1px;
     border-color:     rgba(250, 129, 255, 0.5);
     border-radius:    10px;
