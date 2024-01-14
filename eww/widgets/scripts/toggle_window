@@ -1,8 +1,15 @@
+#!/usr/bin/bash
 window_open=$(eww windows | sed -n "/\*${1}\$/p")
 
 if [[ $window_open == "" ]];
 then
-	eww open $1 && eww update "${1}_open=true"
+	eww update "${1}_open=true"
+	# The delay helps prevent https://github.com/elkowar/eww/issues/1008
+	sleep 0.02
+	eww open $1
 else
-	eww close $1 && eww update "${1}_open=false"
+	eww update "${1}_open=false"
+	# The delay helps prevent https://github.com/elkowar/eww/issues/1008
+	sleep 0.02
+	eww close $1
 fi
