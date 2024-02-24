@@ -1,0 +1,22 @@
+brightness_restore_file=/tmp/.idle-restore-brightness-level
+
+save_brightness_level() {
+	brightnessctl get > $brightness_restore_file
+}
+
+get_restore_brightness_level() {
+	cat $brightness_restore_file
+}
+
+case $1 in
+"brightness-down")
+	save_brightness_level
+	brightnessctl set $2
+;;
+"brightness-restore")
+	brightnessctl set $(get_restore_brightness_level)
+;;
+*)
+	echo "no option specified."
+;;
+esac
