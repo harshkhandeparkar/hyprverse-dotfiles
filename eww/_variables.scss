@@ -1,7 +1,7 @@
 @use "sass:color";
 
 $accent_color: #fb80ff;
-$border_color: color.change($accent_color, $alpha:0.5);
+$border_color: color.change($accent_color, $alpha:0.4);
 $active_color: color.change($accent_color, $alpha:0.4);
 $active_hover_color: color.change($accent_color, $alpha:0.3);
 
