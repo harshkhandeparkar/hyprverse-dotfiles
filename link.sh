@@ -5,7 +5,6 @@ remove_dirs() {
 	rm -r ~/.config/eww
 	rm -r ~/.config/hypr
 	rm -r ~/.config/rofi
-	rm -r ~/.config/swaylock
 	rm -r ~/.config/swaync
 	rm -r ~/.config/kitty
 	rm -r ~/.config/fastfetch
@@ -29,7 +28,6 @@ install() {
 	$1 ./eww ~/.config/
 	$1 ./hypr ~/.config/
 	$1 ./rofi ~/.config/
-	$1 ./swaylock ~/.config/
 	$1 ./swaync ~/.config/
 	$1 ./kitty ~/.config/
 	$1 ./fastfetch ~/.config/

@@ -4,7 +4,7 @@ The main configuration file for Hyprland is `hyprland.conf`. [Hyprpaper](https:/
 #### Packages Used
 1. [Hyprland](https://hyprland.org) - Window Manager
 2. [Hyprpaper](https://github.com/hyprwm/hyprpaper) - Wallpaper
-3. [Swaylock Effects](https://github.com/mortie/swaylock-effects) - Lock screen
+3. [Hyprlock](https://wiki.hyprland.org/Hypr-Ecosystem/hyprlock/) - Lock screen
 4. [Sway Notification Center](https://github.com/ErikReider/SwayNotificationCenter) - Notification Center
 5. [BrightnessCTL](https://github.com/Hummer12007/brightnessctl) - For monitor brightness keybinds
 6. [EWW](https://github.com/elkowar/eww) - For widgets

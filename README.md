@@ -14,7 +14,7 @@ See also: My personal [VSCode theme](https://github.com/harshkhandeparkar/person
 ### Packages
 1. [Hyprland](https://hyprland.org) - Window Manager
 2. [Hyprpaper](https://github.com/hyprwm/hyprpaper) - Wallpaper
-3. [Swaylock Effects](https://github.com/mortie/swaylock-effects) - Lock screen
+3. [Hyprlock](https://github.com/https://wiki.hyprland.org/Hypr-Ecosystem/hyprlock/) - Lock screen
 4. [Sway Notification Center](https://github.com/ErikReider/SwayNotificationCenter) - Notification Center
 5. [BrightnessCTL](https://github.com/Hummer12007/brightnessctl) - For monitor brightness keybinds
 6. [EWW](https://github.com/elkowar/eww) - For widgets
@@ -56,10 +56,6 @@ See also: My personal [VSCode theme](https://github.com/harshkhandeparkar/person
 - Config Directory: `~/.config/rofi`
 - See [rofi/README.md](./rofi/README.md)
 
-#### Swaylock
-- Dotfiles: `swaylock/`
-- Config Directory: `~/.config/swaylock`
-- See [swaylock/README.md](./swaylock/README.md)
 
 #### SwayNotificationCenter
 - Dotfiles: `swaync/`
