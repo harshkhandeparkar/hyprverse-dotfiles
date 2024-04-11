@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-window_open=$(eww list-windows | sed -n "/\*${1}\$/p")
+window_open=$(eww active-windows | grep "$1")
 
 if [[ $window_open == "" ]];
 then
