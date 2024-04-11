@@ -1,5 +1,6 @@
-(defwidget divider[]
+(defwidget divider[visible]
 	(box
+		:visible {visible}
 		:class "divider"
 		:hexpand false
 	)

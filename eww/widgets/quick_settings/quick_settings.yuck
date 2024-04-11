@@ -16,7 +16,7 @@
 		:x "10px"
 		:y "10px"
 		:width "23%"
-;		:height "995px"
+		; :height "995px"
 		:anchor "top right"
 	)
 	:stacking "overlay"
@@ -31,10 +31,10 @@
 		(quick_settings_header)
 		(quick_settings_quick_toggles)
 
-		(divider)
+		(divider :visible true)
 		(quick_settings_sliders)
 
-		(divider)
+		(divider :visible {wifi_status})
 		(quick_settings_wifi)
 	)
 )

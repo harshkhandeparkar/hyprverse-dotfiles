@@ -7,13 +7,17 @@
 		padding: 1rem;
 	}
 
+	.quick-toggles {
+		padding: 0.2rem;
+	}
+
 	// QUICK SETTINGS HEADER
 	.quick-settings-header {
 		> label {
 			font-size: 2rem;
 		}
 
-		padding: 0 1rem 1rem 1rem;
+		padding: 0.5rem 1rem;
 		border-bottom: $border;
 	}
 	// QUICK SETTINGS HEADER
@@ -22,6 +26,7 @@
 	.divider {
 		border-bottom: $border;
 		margin: 0 100px;
+		padding: 0;
 	}
 	// DIVIDER
 

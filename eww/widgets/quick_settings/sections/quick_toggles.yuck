@@ -16,6 +16,7 @@
 		:space-evenly false
 		:spacing 10
 		:halign "center"
+		:class "quick-toggles"
 		(icon_button
 			:icon "img/yaru-icons/network-wireless-signal-good-symbolic.svg"
 			:onclick "widgets/quick_settings/scripts/wifi toggle"
