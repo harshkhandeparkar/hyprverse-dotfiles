@@ -14,7 +14,7 @@
 		:class "quick-controls"
 		(dnd)
 		(power_profile_btn)
-		(vpn)
+		; (vpn)
 		(quick_settings_button)
 		(notifications)
 	)
