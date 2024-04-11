@@ -4,12 +4,12 @@ window_open=$(eww active-windows | grep "$1")
 if [[ $window_open == "" ]];
 then
 	eww update "${1}_open=true"
-	# The delay helps prevent https://github.com/elkowar/eww/issues/1008
+	# The delay helps prevent https://github.com/elkowar/eww/issues/1022
 	sleep 0.1
 	eww open $1
 else
 	eww update "${1}_open=false"
-	# The delay helps prevent https://github.com/elkowar/eww/issues/1008
+	# The delay helps prevent https://github.com/elkowar/eww/issues/1022
 	sleep 0.1
 	eww close $1
 fi
