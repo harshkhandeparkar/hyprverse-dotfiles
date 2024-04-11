@@ -1,0 +1,37 @@
+(defwidget wifi_toggle[]
+	(eventbox
+		:cursor "pointer"
+		(button
+			:onclick "widgets/quick_settings/scripts/wifi toggle"
+			:class "panel-btn btn ${wifi_status == 'true' ? 'btn-active' : ''}"
+
+			:tooltip "Toggle Wifi"
+
+			(image
+				:path "img/yaru-icons/network-wireless-signal-good-symbolic.svg"
+				:image-height 20
+			)
+		)
+	)
+)
+
+(defwidget eth_toggle[]
+	(eventbox
+		:cursor "pointer"
+		(button
+			:onclick "widgets/quick_settings/scripts/eth toggle"
+			:class "panel-btn btn ${eth_status == 'connected' ? 'btn-active' : ''}"
+
+			:tooltip "Toggle Ethernet"
+			:enabled {eth_status == "disconnected" || eth_status == "connected"}
+
+			(image
+				:path {
+					eth_status == "unavailable" ? "img/yaru-icons/network-wired-offline-symbolic.svg" :
+					matches(eth_status, "connecting") ? "img/yaru-icons/network-wired-acquiring-symbolic.svg" : "img/yaru-icons/network-wired-symbolic.svg"
+				}
+				:image-height 20
+			)
+		)
+	)
+)

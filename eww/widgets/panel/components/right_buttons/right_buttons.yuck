@@ -3,6 +3,7 @@
 (include "./widgets/panel/components/right_buttons/power_profile.yuck")
 (include "./widgets/panel/components/right_buttons/quick_settings.yuck")
 (include "./widgets/panel/components/right_buttons/notifications.yuck")
+(include "./widgets/panel/components/right_buttons/network.yuck")
 
 (defwidget right_buttons[]
 	(box
@@ -13,6 +14,8 @@
 		:height 10
 		:class "quick-controls"
 		(dnd)
+		(wifi_toggle)
+		(eth_toggle)
 		(power_profile_btn)
 		; (vpn)
 		(quick_settings_button)
