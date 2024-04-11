@@ -86,13 +86,13 @@
 
 (defpoll current_workspace
 	:initial "1"
-	:interval "300ms"
+	:interval "2s"
 	:run-while {workspace_status_indicator_shown && panel_open}
 	`hyprctl monitors | grep active | awk '{print $3}'`
 )
 (defpoll total_workspaces
 	:initial "1"
-	:interval "300ms"
+	:interval "2s"
 	:run-while {workspace_status_indicator_shown && panel_open}
 	`hyprctl workspaces | grep workspace -c`
 )
