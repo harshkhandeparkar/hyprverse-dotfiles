@@ -5,11 +5,11 @@ if [[ $window_open == "" ]];
 then
 	eww update "${1}_open=true"
 	# The delay helps prevent https://github.com/elkowar/eww/issues/1008
-	sleep 0.02
+	sleep 0.1
 	eww open $1
 else
 	eww update "${1}_open=false"
 	# The delay helps prevent https://github.com/elkowar/eww/issues/1008
-	sleep 0.02
+	sleep 0.1
 	eww close $1
 fi
