@@ -1,13 +1,13 @@
 (defpoll wifi_status
 	:initial false
-	:interval "100ms"
-	:run-while quick_settings_open
+	:interval "2s"
+	; :run-while quick_settings_open
 	"sh ./widgets/quick_settings/scripts/wifi status"
 )
 (defpoll eth_status
 	:initial "unavailable"
-	:interval "100ms"
-	:run-while quick_settings_open
+	:interval "2s"
+	; :run-while quick_settings_open
 	"sh ./widgets/quick_settings/scripts/eth status"
 )
 

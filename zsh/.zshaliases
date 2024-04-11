@@ -5,6 +5,8 @@ alias cat='bat'
 alias ls='eza --icons --header'
 alias ssh='kitty +kitten ssh'
 alias man='tldr'
+alias vim='nvim'
+alias vi='nvim'
 
 # Git aliases
 alias checkout='git checkout'

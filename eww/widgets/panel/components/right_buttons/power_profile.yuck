@@ -1,5 +1,5 @@
 (defpoll power_profile
-	:interval "500ms"
+	:interval "2s"
 	:initial "false"
 	:run-while {panel_open}
 	"powerprofilesctl get"
