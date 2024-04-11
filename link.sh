@@ -9,6 +9,7 @@ remove_dirs() {
 	rm -r ~/.config/kitty
 	rm -r ~/.config/fastfetch
 	rm ~/.config/rofimoji.rc
+	rm -r ~/.config/nvim
 
 	# ZSH
 	rm ~/.config/starship.toml
@@ -32,6 +33,7 @@ install() {
 	$1 ./kitty ~/.config/
 	$1 ./fastfetch ~/.config/
 	$1 ./rofimoji/rofimoji.rc ~/.config/rofimoji.rc
+	$1 ./nvim ~/.config/
 
 	# ZSH
 	$1 ./zsh/starship.toml ~/.config/starship.toml

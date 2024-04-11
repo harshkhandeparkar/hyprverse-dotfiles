@@ -67,7 +67,7 @@ format = '\[[$symbol sudo]($style)\]'
 [cmd_duration]
 format = '\[[ $duration]($style)\]'
 min_time = 1_000
-show_notifications = true
+show_notifications = false
 
 # Bracketed segments preset
 [aws]

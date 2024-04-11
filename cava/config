@@ -60,7 +60,7 @@ sensitivity = 125
 # For fifo 'source' will be the path to fifo-file.
 # For shmem 'source' will be /squeezelite-AA:BB:CC:DD:EE:FF where 'AA:BB:CC:DD:EE:FF' will be squeezelite's MAC address
 ; method = pulse
-; source = auto
+source = 275
 
 ; method = alsa
 ; source = hw:Loopback,1

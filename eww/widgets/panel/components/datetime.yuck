@@ -3,7 +3,7 @@
 	:interval "1s"
 	:initial "TIME"
 	:run-while {panel_datetime_feature_enabled && panel_open}
-	`date "+%a %b %d  %r"`
+	`date "+%a, %d %b, %l:%M %p"`
 )
 
 (defwidget datetime[]
