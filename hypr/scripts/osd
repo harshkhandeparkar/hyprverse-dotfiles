@@ -1,7 +1,12 @@
 osd() {
 	eww update osd_type=$1
-	eww open osd
-	eww update osd_open=true osd_timer=2
+	window_open=
+
+	if [[ $(eww get osd_open) == "false" ]];
+	then
+		eww open osd
+		eww update osd_open=true osd_timer=2
+	fi
 }
 
 is_muted() {
