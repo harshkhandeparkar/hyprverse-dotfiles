@@ -5,7 +5,7 @@ configuration {
 /*	yoffset: 0;*/
 /*	xoffset: 0;*/
 /*	fixed-num-lines: true;*/
-/*	show-icons: false;*/
+	// show-icons: true;
 /*	terminal: "rofi-sensible-terminal";*/
 /*	ssh-client: "ssh";*/
 /*	ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";*/
@@ -13,27 +13,27 @@ configuration {
 /*	run-list-command: "";*/
 /*	run-shell-command: "{terminal} -e {cmd}";*/
 /*	window-command: "wmctrl -i -R {window}";*/
-/*	window-match-fields: "all";*/
+	window-match-fields: "title";
 	icon-theme: "Yaru";
-/*	drun-match-fields: "name,generic,exec,categories,keywords";*/
+	drun-match-fields: "name";
 /*	drun-categories: ;*/
-/*	drun-show-actions: false;*/
+	// drun-show-actions: true;
 	drun-display-format: "{name}";
 /*	drun-url-launcher: "xdg-open";*/
 /*	disable-history: false;*/
 /*	ignored-prefixes: "";*/
 	sort: true;
-	sorting-method: "normal";
+	sorting-method: "levenshtein";
 /*	case-sensitive: false;*/
 /*	cycle: true;*/
-/*	sidebar-mode: false;*/
+	// sidebar-mode: false;
 	hover-select: true;
 /*	eh: 1;*/
-/*	auto-select: false;*/
+	// auto-select: false;
 /*	parse-hosts: false;*/
 /*	parse-known-hosts: true;*/
 	combi-modes: "drun,emoji";
-/*	matching: "normal";*/
+	matching: "fuzzy";
 /*	tokenize: true;*/
 /*	m: "-5";*/
 /*	filter: ;*/
@@ -42,10 +42,10 @@ configuration {
 /*	scroll-method: 0;*/
 	window-format: "{t}";
 /*	click-to-exit: true;*/
-/*	max-history-size: 25;*/
+	max-history-size: 10;
 	combi-hide-mode-prefix: true;
 /*	combi-display-format: "{mode} {text}";*/
-/*	matching-negate-char: '-' /* unsupported */;*/
+/*	matching-negate-char: '-'; unsupported */
 /*	cache-dir: ;*/
 	window-thumbnail: true;
 /*	drun-use-desktop-cache: false;*/
@@ -143,10 +143,6 @@ configuration {
 	timeout {
 		action: "kb-cancel";
 		delay:  0;
-	}
-	filebrowser {
-		directories-first: true;
-		sorting-method:    "name";
 	}
 }
 
