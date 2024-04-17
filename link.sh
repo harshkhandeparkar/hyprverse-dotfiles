@@ -20,6 +20,9 @@ remove_dirs() {
 
 	sudo rm /etc/sddm.conf
 	sudo rm -r /etc/sddm-themes
+
+	# Spotify flags (enables wayland native)
+	sudo rm ~/.config/spotify-flags.conf
 }
 
 # $1: command for installing
@@ -34,6 +37,7 @@ install() {
 	$1 ./fastfetch ~/.config/
 	$1 ./rofimoji/rofimoji.rc ~/.config/rofimoji.rc
 	$1 ./nvim ~/.config/
+	$1 ./spotify/-flags.conf ~/.config
 
 	# ZSH
 	$1 ./zsh/starship.toml ~/.config/starship.toml
@@ -44,6 +48,9 @@ install() {
 
 	sudo $1 ./sddm/sddm.conf /etc/sddm.conf
 	sudo cp -r ./sddm/themes /etc/sddm-themes
+
+	# Spotify flags (enables wayland native)
+	$1 ./spotify/spotify-flags.conf ~/.config/spotify-flags.conf
 }
 
 if [[ "$1" == "--copy" ]];
