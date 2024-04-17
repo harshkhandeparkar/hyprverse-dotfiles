@@ -1,4 +1,4 @@
-(defvar screen_off_timeout true)
+(defvar brightness_timeout true)
 (defvar screen_lock_timeout true)
 (defvar suspend_timeout true)
 
@@ -17,9 +17,9 @@
 		(box
 			:spacing 10
 			(text_button
-				:text "Screen Off"
-				:onclick "sh ./widgets/scripts/toggle_variable screen_off_timeout"
-				:toggled {screen_off_timeout}
+				:text "Brightness"
+				:onclick "sh ./widgets/scripts/toggle_variable brightness_timeout"
+				:toggled {brightness_timeout}
 			)
 			(text_button
 				:text "Screen Lock"

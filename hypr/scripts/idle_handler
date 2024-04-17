@@ -1,0 +1,44 @@
+brightness_restore_file=/tmp/.idle-restore-brightness-level
+
+save_brightness_level() {
+	brightnessctl get > $brightness_restore_file
+}
+
+get_restore_brightness_level() {
+	cat $brightness_restore_file
+}
+
+is_timeout_enabled() {
+	eww get "$1_timeout" | grep true
+}
+
+case $1 in
+	"brightness-down")
+		if [[ $(is_timeout_enabled brightness) ]];
+		then
+			save_brightness_level
+			brightnessctl set $2
+		fi
+	;;
+	"brightness-restore")
+		if [[ $(is_timeout_enabled brightness) ]];
+		then
+			brightnessctl set $(get_restore_brightness_level)
+		fi
+	;;
+	"screen_lock")
+		if [[ $(is_timeout_enabled screen_lock) ]];
+		then
+			hyprlock
+		fi
+	;;
+	"suspend")
+		if [[ $(is_timeout_enabled suspend) ]];
+		then
+			systemctl suspend
+		fi
+	;;
+	*)
+		echo "no option specified."
+	;;
+esac
