@@ -1,5 +1,5 @@
 is_window_open() {
-	eww windows | sed -n "/\*${1}\$/p"
+	eww active-windows | grep "$1"
 }
 
 open_window() {
