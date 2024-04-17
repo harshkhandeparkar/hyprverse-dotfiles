@@ -1,0 +1,36 @@
+(defvar screen_off_timeout true)
+(defvar screen_lock_timeout true)
+(defvar suspend_timeout true)
+
+(defwidget quick_settings_timeouts[]
+	(box
+		:orientation "vertical"
+		:space-evenly false
+		:spacing 15
+		:class "quick-settings-section"
+
+		(label
+			:class "section-title"
+			:text "Hypridle Timeouts"
+		)
+
+		(box
+			:spacing 10
+			(text_button
+				:text "Screen Off"
+				:onclick "sh ./widgets/scripts/toggle_variable screen_off_timeout"
+				:toggled {screen_off_timeout}
+			)
+			(text_button
+				:text "Screen Lock"
+				:onclick "sh ./widgets/scripts/toggle_variable screen_lock_timeout"
+				:toggled {screen_lock_timeout}
+			)
+			(text_button
+				:text "Suspend"
+				:onclick "sh ./widgets/scripts/toggle_variable suspend_timeout"
+				:toggled {suspend_timeout}
+			)
+		)
+	)
+)

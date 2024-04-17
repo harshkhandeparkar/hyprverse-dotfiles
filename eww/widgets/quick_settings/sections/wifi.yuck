@@ -14,7 +14,7 @@
 		:space-evenly false
 		:hexpand true
 		:orientation "vertical"
-		:class "quick-settings-wifi"
+		:class "quick-settings-wifi quick-settings-section"
 
 		(dropdown
 			:toggled {quick_settings_wifi_toggled}

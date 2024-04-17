@@ -8,6 +8,7 @@
 (include "./widgets/quick_settings/sections/quick_toggles.yuck")
 (include "./widgets/quick_settings/sections/sliders.yuck")
 (include "./widgets/quick_settings/sections/wifi.yuck")
+(include "./widgets/quick_settings/sections/timeouts.yuck")
 
 (defvar quick_settings_open false)
 (defwindow quick_settings
@@ -16,7 +17,6 @@
 		:x "10px"
 		:y "10px"
 		:width "23%"
-		; :height "995px"
 		:anchor "top right"
 	)
 	:stacking "overlay"
@@ -36,5 +36,8 @@
 
 		(divider :visible {wifi_status})
 		(quick_settings_wifi)
+
+		(divider :visible true)
+		(quick_settings_timeouts)
 	)
 )

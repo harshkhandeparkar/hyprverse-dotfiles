@@ -20,6 +20,7 @@
 (defwidget quick_settings_sliders[]
 	(box
 		:orientation "vertical"
+		:class "quick-settings-section"
 
 		(slider_setting
 			:title "Output Volume"

@@ -3,6 +3,8 @@
 	border-radius: $border_radius;
 	border: $border;
 
+	padding: 1rem;
+
 	> box {
 		padding: 1rem;
 	}
@@ -11,13 +13,22 @@
 		padding: 0.2rem;
 	}
 
+	.quick-settings-section {
+		padding: 0 1rem;
+	}
+
+	.section-title {
+		font-size: 1.3rem;
+		font-weight: bold;
+	}
+
 	// QUICK SETTINGS HEADER
 	.quick-settings-header {
 		> label {
 			font-size: 2rem;
 		}
 
-		padding: 0.5rem 1rem;
+		padding: 0 1rem 1rem 1rem;
 		border-bottom: $border;
 	}
 	// QUICK SETTINGS HEADER
