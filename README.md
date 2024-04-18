@@ -1,6 +1,6 @@
 # Hyprverse
 Dotfiles for my Spiderverse-themed [Hyprland](https://hyprland.org) configuration on Arch Linux with NVIDIA dGPU + Intel CPU Laptop.
-![rofi](img/rofi.png)
+![neofetch](./img/neofetch.png)
 
 > **WARNING** Some information in this README is outdated.
 
@@ -68,5 +68,6 @@ See also: My personal [VSCode theme](https://github.com/harshkhandeparkar/person
 - See [cava/README.md](./cava/README.md)
 
 ### Images
-![cava-spotify](img/cava-spotify.png)
-![sddm](img/sddm.png)
+![rofi](./img/rofi.png)
+![cava-spotify](./img/cava-spotify.png)
+![sddm](./img/sddm.png)
