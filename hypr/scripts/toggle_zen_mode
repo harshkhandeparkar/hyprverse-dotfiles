@@ -27,6 +27,7 @@ is_panel_open=$(is_window_open "panel")
 if [[ $is_panel_open == "" ]];
 then
 	open_window "panel"
+	open_window "hyprsplash"
 
 	# Reload the config to change to defaults
 	hyprctl reload
@@ -36,6 +37,7 @@ then
 else
 	# Close the panel
 	close_window "panel"
+	close_window "hyprsplash"
 
 	# Close all other windows
 	close_window "quick_settings"
