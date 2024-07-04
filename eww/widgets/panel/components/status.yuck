@@ -1,7 +1,7 @@
-(defvar cpu_status_indicator_shown false)
-(defvar ram_status_indicator_shown false)
+(defvar cpu_status_indicator_shown true)
+(defvar ram_status_indicator_shown true)
 (defvar batt_status_indicator_shown true)
-(defvar workspace_status_indicator_shown true)
+(defvar workspace_status_indicator_shown false)
 
 (defwidget status[]
 	(box
@@ -54,7 +54,7 @@
 		)
 
 		(label
-			:text "${round(EWW_RAM.used_mem / 1000000000, 2)} GB"
+			:text "${round(EWW_RAM.used_mem / 1000000000, 1)} GB"
 			:halign "end"
 			:class "bold"
 		)
