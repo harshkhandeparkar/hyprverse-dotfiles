@@ -1,6 +1,6 @@
 (defvar brightness_timeout true)
 (defvar screen_lock_timeout true)
-(defvar suspend_timeout true)
+(defvar suspend_timeout false)
 
 (defwidget quick_settings_timeouts[]
 	(box
