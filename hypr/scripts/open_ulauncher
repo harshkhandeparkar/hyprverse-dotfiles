@@ -1,0 +1,7 @@
+# Opens ULauncher in the correct window
+
+MONITOR_ID=$(hyprctl activeworkspace | grep monitorID | head -1 | cut -d ':' -f2 | sed 's/ //')
+
+ulauncher-toggle
+hyprctl dispatch movewindow "mon:$MONITOR_ID"
+hyprctl dispatch focuswindow 'title:^(Ulauncher - Application Launcher)$'
