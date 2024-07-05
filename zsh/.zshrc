@@ -36,4 +36,5 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/fzf-tab-git/fzf-tab.plugin.zsh
 
-ZSH_AUTOSUGGEST_STRATEGY=completion
+ZSH_AUTOSUGGEST_STRATEGY=(completion history)
+bindkey '\t\t' autosuggest-accept
