@@ -18,3 +18,6 @@ alias clone='git clone'
 alias stage='git add .'
 alias status='git status'
 alias rebase='git rebase'
+
+# Use run0 instead of sudo
+alias sudo='run0'
