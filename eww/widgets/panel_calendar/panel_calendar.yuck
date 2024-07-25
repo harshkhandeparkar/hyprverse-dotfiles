@@ -1,6 +1,6 @@
 (defvar panel_calendar_open false)
 (defwindow panel_calendar
-	:monitor 0
+	:monitor 1
 	:geometry (geometry
 		:x "0%"
 		:y "20px"
