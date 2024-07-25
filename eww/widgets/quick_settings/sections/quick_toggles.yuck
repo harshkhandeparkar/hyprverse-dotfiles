@@ -19,16 +19,23 @@
 		:class "quick-toggles quick-settings-section"
 
 		(icon_button
-			:icon "img/yaru-icons/network-wireless-signal-good-symbolic.svg"
+			:icon {
+				wifi_status == "loading" ?
+				"img/yaru-icons/network-wireless-acquiring-symbolic.svg" :
+				"img/yaru-icons/network-wireless-signal-good-symbolic.svg"
+			}
 			:onclick "widgets/quick_settings/scripts/wifi toggle"
 			:tooltip "Toggle Wifi"
-			:enabled true
-			:toggled {wifi_status}
+			:enabled {wifi_status != "loading"}
+			:toggled {wifi_status == true}
 		)
 		(icon_button
 			:icon {
-				eth_status == "unavailable" ? "img/yaru-icons/network-wired-offline-symbolic.svg" :
-				matches(eth_status, "connecting") ? "img/yaru-icons/network-wired-acquiring-symbolic.svg" : "img/yaru-icons/network-wired-symbolic.svg"
+				eth_status == "unavailable" ?
+				"img/yaru-icons/network-wired-offline-symbolic.svg" :
+				matches(eth_status, "connecting") || eth_status == "loading" ?
+				"img/yaru-icons/network-wired-acquiring-symbolic.svg" :
+				"img/yaru-icons/network-wired-symbolic.svg"
 			}
 			:onclick "widgets/quick_settings/scripts/eth toggle"
 			:tooltip "Toggle Ethernet"

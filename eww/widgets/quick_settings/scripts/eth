@@ -7,6 +7,7 @@ get_eth_device_name() {
 }
 
 toggle_eth() {
+	eww update eth_status="loading"
 	eth_status=$(get_eth_status)
 	eth_device_name=$(get_eth_device_name)
 

@@ -6,9 +6,14 @@
 			:class "panel-btn btn ${wifi_status == 'true' ? 'btn-active' : ''}"
 
 			:tooltip "Toggle Wifi"
+			:active {wifi_status != "loading"}
 
 			(image
-				:path "img/yaru-icons/network-wireless-signal-good-symbolic.svg"
+				:path {
+					wifi_status == "loading" ?
+					"img/yaru-icons/network-wireless-acquiring-symbolic.svg" :
+					"img/yaru-icons/network-wireless-signal-good-symbolic.svg"
+				}
 				:image-height 20
 			)
 		)
@@ -23,12 +28,15 @@
 			:class "panel-btn btn ${eth_status == 'connected' ? 'btn-active' : ''}"
 
 			:tooltip "Toggle Ethernet"
-			:enabled {eth_status == "disconnected" || eth_status == "connected"}
+			:active {eth_status == "disconnected" || eth_status == "connected"}
 
 			(image
 				:path {
-					eth_status == "unavailable" ? "img/yaru-icons/network-wired-offline-symbolic.svg" :
-					matches(eth_status, "connecting") ? "img/yaru-icons/network-wired-acquiring-symbolic.svg" : "img/yaru-icons/network-wired-symbolic.svg"
+					eth_status == "unavailable" ?
+					"img/yaru-icons/network-wired-offline-symbolic.svg" :
+					matches(eth_status, "connecting") || eth_status == "loading" ?
+					"img/yaru-icons/network-wired-acquiring-symbolic.svg" :
+					"img/yaru-icons/network-wired-symbolic.svg"
 				}
 				:image-height 20
 			)

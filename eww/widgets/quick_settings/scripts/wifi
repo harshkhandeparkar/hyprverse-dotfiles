@@ -10,6 +10,7 @@ get_wifi_status() {
 }
 
 toggle_wifi() {
+	eww update wifi_status="loading"
 	wifi_status=$(get_wifi_status)
 
 	if [[ $wifi_status == "true" ]];
