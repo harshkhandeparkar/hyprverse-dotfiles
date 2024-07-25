@@ -7,6 +7,16 @@
 	"sh ./widgets/quick_settings/scripts/wifi list"
 )
 
+(defvar wifi_signal_icons
+	"[
+		{\"cutoff\": 80, \"icon\": \"img/yaru-icons/network-wireless-signal-excellent-symbolic.svg\"},
+		{\"cutoff\": 60, \"icon\": \"img/yaru-icons/network-wireless-signal-good-symbolic.svg\"},
+		{\"cutoff\": 50, \"icon\": \"img/yaru-icons/network-wireless-signal-ok-symbolic.svg\"},
+		{\"cutoff\": 40, \"icon\": \"img/yaru-icons/network-wireless-signal-weak-symbolic.svg\"},
+		{\"cutoff\": 0, \"icon\": \"img/yaru-icons/network-wireless-signal-none-symbolic.svg\"}
+	]"
+)
+
 (defwidget quick_settings_wifi[]
 	(box
 		:visible {wifi_status}
@@ -22,11 +32,11 @@
 			:title {available_wifi_networks[0].active ? available_wifi_networks[0].ssid : "Wi-Fi"}
 				:icon {
 					available_wifi_networks[0].active ? (
-						available_wifi_networks[0].signal > 90 ? "img/yaru-icons/network-wireless-signal-excellent-symbolic.svg" :
-						available_wifi_networks[0].signal > 80 ? "img/yaru-icons/network-wireless-signal-good-symbolic.svg" :
-						available_wifi_networks[0].signal > 70 ? "img/yaru-icons/network-wireless-signal-ok-symbolic.svg" :
-						available_wifi_networks[0].signal > 60 ? "img/yaru-icons/network-wireless-signal-weak-symbolic.svg" :
-						"img/yaru-icons/network-wireless-signal-none-symbolic.svg"
+						available_wifi_networks[0].signal > wifi_signal_icons[0].cutoff ? wifi_signal_icons[0].icon :
+						available_wifi_networks[0].signal > wifi_signal_icons[1].cutoff ? wifi_signal_icons[1].icon :
+						available_wifi_networks[0].signal > wifi_signal_icons[2].cutoff ? wifi_signal_icons[2].icon :
+						available_wifi_networks[0].signal > wifi_signal_icons[3].cutoff ? wifi_signal_icons[3].icon :
+						wifi_signal_icons[4].icon
 					) : "img/yaru-icons/network-wireless-symbolic.svg"
 				}
 
@@ -50,11 +60,11 @@
 
 							(image
 								:path {
-									network.signal > 90 ? "img/yaru-icons/network-wireless-signal-excellent-symbolic.svg" :
-									network.signal > 80 ? "img/yaru-icons/network-wireless-signal-good-symbolic.svg" :
-									network.signal > 70 ? "img/yaru-icons/network-wireless-signal-ok-symbolic.svg" :
-									network.signal > 60 ? "img/yaru-icons/network-wireless-signal-weak-symbolic.svg" :
-									"img/yaru-icons/network-wireless-signal-none-symbolic.svg"
+									available_wifi_networks[0].signal > wifi_signal_icons[0].cutoff ? wifi_signal_icons[0].icon :
+									available_wifi_networks[0].signal > wifi_signal_icons[1].cutoff ? wifi_signal_icons[1].icon :
+									available_wifi_networks[0].signal > wifi_signal_icons[2].cutoff ? wifi_signal_icons[2].icon :
+									available_wifi_networks[0].signal > wifi_signal_icons[3].cutoff ? wifi_signal_icons[3].icon :
+									wifi_signal_icons[4].icon
 								}
 							)
 							(label
