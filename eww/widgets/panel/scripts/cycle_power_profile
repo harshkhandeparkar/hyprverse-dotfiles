@@ -1,4 +1,5 @@
 current_power_profile=$(powerprofilesctl get)
+eww update power_profile="loading"
 
 case $current_power_profile in
 	"balanced")
