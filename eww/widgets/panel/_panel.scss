@@ -30,15 +30,15 @@ $end_margin: 10px;
 
 	.quick-controls {
 		border-left: 1px solid $border_color;
-		padding-left: 10;
-		padding-right: 10;
+		padding-left: 10px;
+		padding-right: 10px;
 		margin-top: 5px;
 		margin-bottom: 5px;
 
 		eventbox {
-			padding: 0;
+			padding: 0px;
 			button {
-				padding: 0;
+				padding: 0px;
 			}
 		}
 
@@ -69,7 +69,7 @@ $end_margin: 10px;
 // PANEL - BUTTONS
 .panel-btn {
 	border: $border;
-	padding: 0;
+	padding: 0px;
 
 	background: transparent;
 

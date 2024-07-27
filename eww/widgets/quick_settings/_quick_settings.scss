@@ -37,7 +37,7 @@
 	.divider {
 		border-bottom: $border;
 		margin: 0 100px;
-		padding: 0;
+		padding: 0px;
 	}
 	// DIVIDER
 
@@ -47,7 +47,7 @@
 	}
 
 	.slider-setting-slider {
-		padding-left: 0;
+		padding-left: 0px;
 	}
 	// SLIDER SETTING
 
@@ -70,7 +70,7 @@
 			font-weight: bold;
 
 			padding: 8px 15px;
-			border-radius: $border_radius $border_radius 0 0;
+			border-radius: $border_radius $border_radius 0px 0px;
 		}
 
 		.dropdown-title-eventbox:hover .dropdown-title {
