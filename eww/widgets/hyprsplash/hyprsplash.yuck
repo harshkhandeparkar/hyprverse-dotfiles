@@ -6,7 +6,7 @@
 )
 
 (defwindow hyprsplash
-	:monitor 1
+	:monitor "[1, 0]"
 	:geometry (geometry
 		:y "10px"
 		:anchor "bottom center"
