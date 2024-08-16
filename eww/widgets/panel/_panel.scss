@@ -17,7 +17,7 @@ $end_margin: 10px;
 }
 
 // PANEL
-.panel {
+.panel, .horizontal_panel {
 	background: $background_color;
 	border-radius: $border_radius;
 	border: $border;
@@ -68,7 +68,7 @@ $end_margin: 10px;
 
 // PANEL - BUTTONS
 .panel-btn {
-	border: $border;
+	// border: $border;
 	padding: 0px;
 
 	background: transparent;
