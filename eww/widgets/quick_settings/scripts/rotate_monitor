@@ -1,0 +1,10 @@
+if [[ $(hyprctl monitors | grep "transform: 1") != "" ]];
+then
+	hyprctl keyword monitor "HDMI-A-1, transform, 0"
+	eww close horizontal_panel
+	eww open panel
+else
+	hyprctl keyword monitor "HDMI-A-1, transform, 1"
+	eww close panel
+	eww open horizontal_panel
+fi

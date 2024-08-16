@@ -3,11 +3,12 @@
 (defvar batt_status_indicator_shown true)
 (defvar workspace_status_indicator_shown false)
 
-(defwidget status[]
+(defwidget status[visible]
 	(box
 		:spacing 15
 		:space-evenly false
 		:class "status"
+		:visible {visible}
 
 		(cpu :visible {cpu_status_indicator_shown})
 		(ram :visible {ram_status_indicator_shown})

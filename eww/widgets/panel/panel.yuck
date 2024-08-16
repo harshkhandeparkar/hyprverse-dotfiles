@@ -4,19 +4,8 @@
 (include "./widgets/panel/components/right_buttons/right_buttons.yuck")
 
 (defvar panel_open true)
-(defwindow panel
-	:monitor 1
-	:geometry (geometry
-		:x "0%"
-		:y "0%"
-		:width "1900px"
-		:height "35px"
-		:anchor "top center"
-	)
-	:stacking "fg"
-	:focusable false
-	:exclusive true
 
+(defwidget panel_content[no_status]
 	(centerbox
 		(box
 			:class "panel-left"
@@ -33,8 +22,46 @@
 			:space-evenly false
 			:spacing 10
 			:halign "end"
-			(status)
+			(status
+				:visible {!no_status}
+			)
 			(right_buttons)
 		)
+	)
+)
+
+(defwindow panel
+	:monitor "[1, 0]"
+	:geometry (geometry
+		:x "0%"
+		:y "0%"
+		:width "1900px"
+		:height "35px"
+		:anchor "top center"
+	)
+	:stacking "fg"
+	:focusable false
+	:exclusive true
+
+	(panel_content
+		:no_status false
+	)
+)
+
+(defwindow horizontal_panel
+	:monitor "[1, 0]"
+	:geometry (geometry
+		:x "0%"
+		:y "0%"
+		:width "1060px"
+		:height "35px"
+		:anchor "top center"
+	)
+	:stacking "fg"
+	:focusable false
+	:exclusive true
+
+	(panel_content
+		:no_status true
 	)
 )

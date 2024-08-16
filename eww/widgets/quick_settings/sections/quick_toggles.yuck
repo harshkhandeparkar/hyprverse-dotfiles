@@ -56,5 +56,12 @@
 			:enabled true
 			:toggled false
 		)
+		(icon_button
+			:icon "img/yaru-icons/object-rotate-left-symbolic.svg"
+			:onclick "widgets/quick_settings/scripts/rotate_monitor"
+			:tooltip "Rotate Monitor"
+			:enabled {true}
+			:toggled {false}
+		)
 	)
 )
