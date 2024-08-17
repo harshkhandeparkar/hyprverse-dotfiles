@@ -9,7 +9,7 @@
 	(eventbox
 		:cursor "pointer"
 		(button
-			:onclick "widgets/panel/scripts/cycle_power_profile"
+			:onclick "sh widgets/panel/scripts/cycle_power_profile &> /dev/null"
 			:class "panel-btn vpn-btn btn power-profile-btn-${power_profile}"
 
 			:tooltip "Power Profile"
