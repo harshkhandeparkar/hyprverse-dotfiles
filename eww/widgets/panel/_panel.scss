@@ -43,24 +43,15 @@ $end_margin: 10px;
 		}
 
 		.power-profile-btn-balanced {
-			background-color: rgba(255, 255, 255, 0.3);
-		}
-		.power-profile-btn-balanced:hover {
-			background-color: rgba(255, 255, 255, 0.2);
+			background-color: $active_color;
 		}
 
 		.power-profile-btn-performance {
-			background-color: rgba(233, 52, 52, 0.3);
-		}
-		.power-profile-btn-performance:hover {
-			background-color: rgba(233, 52, 52, 0.2);
+			background-color: rgba(224, 82, 82, 0.2);
 		}
 
 		.power-profile-btn-power-saver {
-			background-color: rgba(80, 219, 21, 0.3);
-		}
-		.power-profile-btn-power-saver:hover {
-			background-color: rgba(80, 219, 21, 0.2);
+			background-color: rgba(124, 224, 82, 0.2);
 		}
 	}
 }
