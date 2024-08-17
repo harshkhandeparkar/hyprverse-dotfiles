@@ -1,8 +1,8 @@
 @use "sass:color";
 
-$accent_color: rgb(251, 128, 255);
+$accent_color: rgb(230, 196, 153);
 $border_color: color.change($accent_color, $alpha:0.4);
-$active_color: color.change($accent_color, $alpha:0.4);
+$active_color: color.change($accent_color, $alpha:0.2);
 $active_hover_color: color.change($accent_color, $alpha:0.3);
 
 $text_color: rgb(218, 218, 218);
