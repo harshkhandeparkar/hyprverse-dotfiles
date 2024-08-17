@@ -10,7 +10,7 @@
 	(eventbox
 		:class "panel-date-time"
 		:cursor "pointer"
-		:onclick "widgets/scripts/toggle_window panel_calendar"
+		:onclick "sh widgets/scripts/toggle_window panel_calendar &>/dev/null"
 		:visible {panel_datetime_feature_enabled}
 		:active {panel_datetime_feature_enabled}
 		(label

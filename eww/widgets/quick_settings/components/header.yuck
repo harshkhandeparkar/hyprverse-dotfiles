@@ -24,7 +24,7 @@
 				:cursor "pointer"
 				:tooltip "Close"
 				(button
-					:onclick "widgets/scripts/toggle_window quick_settings"
+					:onclick "sh widgets/scripts/toggle_window quick_settings &>/dev/null"
 					(image
 						:path "img/yaru-icons/window-close-symbolic.svg"
 						:image-height 20
