@@ -21,7 +21,7 @@
 					"img/yaru-icons/content-loading-symbolic.svg" :
 					"img/yaru-icons/power-profile-${power_profile}-symbolic.svg"
 				}
-				:image-height 20
+				:image-height 18
 			)
 		)
 	)

@@ -21,7 +21,7 @@
 			(label
 				:text {notif_count}
 				:style "font-weight: bold; font-size: 1.1rem;"
-				:width 20
+				:width 18
 			)
 		)
 

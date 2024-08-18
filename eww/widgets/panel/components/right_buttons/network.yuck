@@ -14,7 +14,7 @@
 					"img/yaru-icons/network-wireless-acquiring-symbolic.svg" :
 					"img/yaru-icons/network-wireless-signal-good-symbolic.svg"
 				}
-				:image-height 20
+				:image-height 18
 			)
 		)
 	)
@@ -38,7 +38,7 @@
 					"img/yaru-icons/network-wired-acquiring-symbolic.svg" :
 					"img/yaru-icons/network-wired-symbolic.svg"
 				}
-				:image-height 20
+				:image-height 18
 			)
 		)
 	)

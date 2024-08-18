@@ -16,7 +16,7 @@
 
 			(image
 				:path "img/yaru-icons/indicator-notification-read-dnd.svg"
-				:image-height 20
+				:image-height 18
 			)
 		)
 	)

@@ -8,7 +8,7 @@
 
 (defwidget datetime[]
 	(eventbox
-		:class "panel-date-time"
+		:class "panel-datetime"
 		:cursor "pointer"
 		:onclick "sh widgets/scripts/toggle_window panel_calendar &>/dev/null"
 		:visible {panel_datetime_feature_enabled}

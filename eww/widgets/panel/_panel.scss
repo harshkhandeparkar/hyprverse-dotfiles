@@ -44,14 +44,23 @@ $end_margin: 10px;
 
 		.power-profile-btn-balanced {
 			background-color: $active_color;
+			&:hover {
+				background-color: $active_hover_color;
+			}
 		}
 
 		.power-profile-btn-performance {
 			background-color: rgba(224, 82, 82, 0.2);
+			&:hover {
+				background-color: rgba(224, 82, 82, 0.3);
+			}
 		}
 
 		.power-profile-btn-power-saver {
 			background-color: rgba(124, 224, 82, 0.2);
+			&:hover {
+				background-color: rgba(124, 224, 82, 0.3);
+			}
 		}
 	}
 }
@@ -75,6 +84,18 @@ $end_margin: 10px;
 // PANEL - BUTTONS
 
 // DATETIME
+.panel-datetime {
+	font-size: 1.05rem;
+	border-radius: 10px;
+
+	&> label {
+		padding: 0 10px;
+	}
+
+	&:hover {
+		background-color: $hover_color;
+	}
+}
 // DATETIME
 
 // MEDIA

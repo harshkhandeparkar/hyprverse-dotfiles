@@ -9,7 +9,7 @@
 
 			(image
 				:path "img/yaru-icons/system-settings-symbolic.svg"
-				:image-height 20
+				:image-height 18
 			)
 		)
 	)

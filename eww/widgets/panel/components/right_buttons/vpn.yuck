@@ -16,7 +16,7 @@
 
 			(image
 				:path "img/yaru-icons/nm-vpn-standalone-lock.svg"
-				:image-height 20
+				:image-height 18
 			)
 		)
 	)
