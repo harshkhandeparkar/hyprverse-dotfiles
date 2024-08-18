@@ -11,7 +11,9 @@
   },
   "display": {
     "color": "bright_red",
-    "keyWidth": 7,
+    "key": {
+	    "width": 7
+    },
     "separator": " ​"
   },
   "modules": [
