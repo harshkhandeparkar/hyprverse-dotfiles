@@ -25,6 +25,29 @@ remove_dirs() {
 	sudo rm ~/.config/spotify-flags.conf
 }
 
+copy_dirs() {
+	# .config
+	mv -r ~/.config/cava ~/.config/cava.old
+	mv -r ~/.config/eww ~/.config/eww.old
+	mv -r ~/.config/hypr ~/.config/hypr.old
+	mv -r ~/.config/rofi ~/.config/rofi.old
+	mv -r ~/.config/swaylock ~/.config/swaylock.old
+	mv -r ~/.config/swaync ~/.config/swaync.old
+	mv -r ~/.config/kitty ~/.config/kitty.old
+	mv -r ~/.config/fastfetch ~/.config/fastfetch.old
+	mv ~/.config/rofimoji.rc ~/.config/rofimoji.rc.old
+
+	# ZSH
+	mv ~/.config/starship.toml ~/.config/starship.toml.old
+	mv ~/.zshrc ~/.zshrc.old
+	mv ~/.zshenv ~/.zshenv.old
+	mv ~/.zshbindings ~/.zshbindings.old
+	mv ~/.zshaliases ~/.zshaliases.old
+
+	sudo mv /etc/sddm.conf /etc/sddm.conf.old
+	sudo mv -r /etc/sddm-themes /etc/sddm-themes.old
+}
+
 # $1: command for installing
 install() {
 	# .config
@@ -55,9 +78,19 @@ install() {
 
 if [[ "$1" == "--copy" ]];
 then
-	remove_dirs
+	if [[ "$2" == "--delete" ]];
+ 	then
+ 		remove_dirs
+	 else
+		copy_dirs
+	fi
 	install "cp -r"
 else
-	remove_dirs
+	if [[ "$1" == "--delete" ]];
+ 	then
+ 		remove_dirs
+	 else
+		copy_dirs
+	fi
 	install "ln -srf"
 fi
