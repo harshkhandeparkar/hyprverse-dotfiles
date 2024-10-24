@@ -5,8 +5,8 @@
 @define-color cc-bg rgba(230, 196, 153, 0.3);
 
 @define-color noti-border-color rgba(230, 196, 153, 0.5);
-@define-color noti-bg rgba(57, 49, 38, 0.3);
-@define-color noti-bg-hover rgba(57, 49, 38, 0.5);
+@define-color noti-bg rgba(57, 49, 38, 0.7);
+@define-color noti-bg-hover rgba(57, 49, 38, 0.9);
 @define-color noti-close-bg rgba(23, 23, 23, 0.9);
 @define-color noti-close-bg-hover rgba(230, 196, 153, 0.5);
 
