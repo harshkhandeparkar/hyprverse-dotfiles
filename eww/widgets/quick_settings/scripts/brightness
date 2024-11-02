@@ -6,9 +6,39 @@ set_brightness() {
 	brightnessctl set "${1}%"
 }
 
+# Changing external monitor brightness using ddcutil
+get_external_brightness() {
+	ddcutil getvcp 10 | cut -d : -f2 | cut -d , -f1 | cut -d = -f2 | tr -d ' '
+}
+
+set_external_brightness() {
+	ddcutil setvcp 10 "$1"
+}
+
+external_exists() {
+	capabilities=`ddcutil -t capabilities 2>&1`
+
+	if [[ "$capabilities" == "Display not found" ]];
+	then
+		echo "false"
+	else
+		echo "true"
+	fi
+}
+
 if [[ "$1" == "get" ]];
 then
 	get_brightness
-else
+elif [[ "$1" == "set" ]];
+then
 	set_brightness "$2"
+elif [[ "$1" == "external_exists" ]];
+then
+	external_exists
+elif [[ "$1" == "get_external" ]];
+then
+	get_external_brightness
+elif [[ "$1" == "set_external" ]];
+then
+	set_external_brightness "$2"
 fi

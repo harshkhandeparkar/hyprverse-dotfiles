@@ -1,7 +1,8 @@
-(defwidget slider_setting[value onchange icon title]
+(defwidget slider_setting[value onchange icon title visible]
 	(box
 		:spacing 10
 		:space-evenly false
+		:visible {visible}
 
 		(image
 			:path {icon}

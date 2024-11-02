@@ -11,10 +11,22 @@
 	"sh ./widgets/quick_settings/scripts/input_volume get"
 )
 (defpoll brightness
-	:initial 0.1
+	:initial 0
 	:interval "100ms"
 	:run-while quick_settings_open
 	"sh ./widgets/quick_settings/scripts/brightness get"
+)
+(defpoll external_exists
+	:initial false
+	:interval "1s"
+	:run-while quick_settings_open
+	"sh ./widgets/quick_settings/scripts/brightness external_exists"
+)
+(defpoll external_brightness
+	:initial 0
+	:interval "2s"
+	:run-while quick_settings_open
+	"sh ./widgets/quick_settings/scripts/brightness get_external"
 )
 
 (defwidget quick_settings_sliders[]
@@ -27,18 +39,28 @@
 			:value {output_volume * 100}
 			:onchange "./widgets/quick_settings/scripts/output_volume set {}"
 			:icon "img/yaru-icons/audio-volume-low.svg"
+			:visible true
 		)
 		(slider_setting
 			:title "Input Volume"
 			:value {input_volume * 100}
 			:onchange "./widgets/quick_settings/scripts/input_volume set {}"
 			:icon "img/yaru-icons/audio-input-microphone.svg"
+			:visible true
 		)
 		(slider_setting
 			:title "Brightness"
 			:value {brightness}
 			:onchange "./widgets/quick_settings/scripts/brightness set {}"
 			:icon "img/yaru-icons/display-brightness-symbolic.svg"
+			:visible true
+		)
+		(slider_setting
+			:title "External Monitor Brightness"
+			:value {external_brightness}
+			:onchange "./widgets/quick_settings/scripts/brightness set_external {}"
+			:icon "img/yaru-icons/display-brightness-symbolic.svg"
+			:visible {external_exists}
 		)
 	)
 )
