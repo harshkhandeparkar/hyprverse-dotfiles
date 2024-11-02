@@ -1,87 +1,95 @@
 (defvar quick_settings_wifi_toggled false)
 
 (defpoll available_wifi_networks
-	:initial "[]"
-	:interval "2s"
-	:run-while {wifi_status && quick_settings_open}
-	"sh ./widgets/quick_settings/scripts/wifi list"
+  :initial "[]"
+  :interval "0.5s"
+  :run-while {wifi_status && quick_settings_open}
+  "sh ./widgets/quick_settings/scripts/wifi list"
 )
 
+(defvar loading_wifi_network "")
+
 (defvar wifi_signal_icons
-	"[
-		{\"cutoff\": 80, \"icon\": \"img/yaru-icons/network-wireless-signal-excellent-symbolic.svg\"},
-		{\"cutoff\": 60, \"icon\": \"img/yaru-icons/network-wireless-signal-good-symbolic.svg\"},
-		{\"cutoff\": 50, \"icon\": \"img/yaru-icons/network-wireless-signal-ok-symbolic.svg\"},
-		{\"cutoff\": 40, \"icon\": \"img/yaru-icons/network-wireless-signal-weak-symbolic.svg\"},
-		{\"cutoff\": 0, \"icon\": \"img/yaru-icons/network-wireless-signal-none-symbolic.svg\"}
-	]"
+  "[
+  {\"cutoff\": 80, \"icon\": \"img/yaru-icons/network-wireless-signal-excellent-symbolic.svg\"},
+  {\"cutoff\": 60, \"icon\": \"img/yaru-icons/network-wireless-signal-good-symbolic.svg\"},
+  {\"cutoff\": 50, \"icon\": \"img/yaru-icons/network-wireless-signal-ok-symbolic.svg\"},
+  {\"cutoff\": 40, \"icon\": \"img/yaru-icons/network-wireless-signal-weak-symbolic.svg\"},
+  {\"cutoff\": 0, \"icon\": \"img/yaru-icons/network-wireless-signal-none-symbolic.svg\"}
+  ]"
 )
 
 (defwidget quick_settings_wifi[]
-	(box
-		:visible {wifi_status}
-		:spacing 0
-		:space-evenly false
-		:hexpand true
-		:orientation "vertical"
-		:class "quick-settings-wifi quick-settings-section"
+  (box
+    :visible {wifi_status == "true" || wifi_status == "loading"}
+    :spacing 0
+    :space-evenly false
+    :hexpand true
+    :orientation "vertical"
+    :class "quick-settings-wifi quick-settings-section"
 
-		(dropdown
-			:toggled {quick_settings_wifi_toggled}
-			:toggle_variable_name "quick_settings_wifi_toggled"
-			:title {available_wifi_networks[0].active ? available_wifi_networks[0].ssid : "Wi-Fi"}
-				:icon {
-					available_wifi_networks[0].active ? (
-						available_wifi_networks[0].signal > wifi_signal_icons[0].cutoff ? wifi_signal_icons[0].icon :
-						available_wifi_networks[0].signal > wifi_signal_icons[1].cutoff ? wifi_signal_icons[1].icon :
-						available_wifi_networks[0].signal > wifi_signal_icons[2].cutoff ? wifi_signal_icons[2].icon :
-						available_wifi_networks[0].signal > wifi_signal_icons[3].cutoff ? wifi_signal_icons[3].icon :
-						wifi_signal_icons[4].icon
-					) : "img/yaru-icons/network-wireless-symbolic.svg"
-				}
+    (dropdown
+      :toggled {quick_settings_wifi_toggled}
+      :toggle_variable_name "quick_settings_wifi_toggled"
+      :title {wifi_status == "true" ? (available_wifi_networks[0].active ? available_wifi_networks[0].ssid : "Wi-Fi") : ""}
+      :icon {
+      (wifi_status == "loading" || loading_wifi_network != "") ?
+      "img/yaru-icons/network-wireless-acquiring-symbolic.svg" : (
+        available_wifi_networks[0].active ? (
+          available_wifi_networks[0].signal > wifi_signal_icons[0].cutoff ? wifi_signal_icons[0].icon :
+          available_wifi_networks[0].signal > wifi_signal_icons[1].cutoff ? wifi_signal_icons[1].icon :
+          available_wifi_networks[0].signal > wifi_signal_icons[2].cutoff ? wifi_signal_icons[2].icon :
+          available_wifi_networks[0].signal > wifi_signal_icons[3].cutoff ? wifi_signal_icons[3].icon :
+          wifi_signal_icons[4].icon
+        ) : "img/yaru-icons/network-wireless-symbolic.svg"
+      )
+      }
 
-			(box
-				:orientation "vertical"
-				:space-evenly true
-				:spacing 0
-				:hexpand true
-				:class "wifi-networks-list"
+      (box
+        :orientation "vertical"
+        :space-evenly true
+        :spacing 0
+        :hexpand true
+        :class "wifi-networks-list"
 
-				(for network in available_wifi_networks
-					(eventbox
-						:cursor "pointer"
-						:class "list-item"
-						:onclick "nmcli connection up '${network.ssid}'"
+        (for network in available_wifi_networks
+          (eventbox
+            :cursor "pointer"
+            :class "list-item"
+            :onclick "sh ./widgets/quick_settings/scripts/wifi togglessid '${network.ssid}'"
 
-						(box
-							:hexpand true
-							:space-evenly false
-							:spacing 10
+            (box
+              :hexpand true
+              :space-evenly false
+              :spacing 10
 
-							(image
-								:path {
-									available_wifi_networks[0].signal > wifi_signal_icons[0].cutoff ? wifi_signal_icons[0].icon :
-									available_wifi_networks[0].signal > wifi_signal_icons[1].cutoff ? wifi_signal_icons[1].icon :
-									available_wifi_networks[0].signal > wifi_signal_icons[2].cutoff ? wifi_signal_icons[2].icon :
-									available_wifi_networks[0].signal > wifi_signal_icons[3].cutoff ? wifi_signal_icons[3].icon :
-									wifi_signal_icons[4].icon
-								}
-							)
-							(label
-								:text "${network.ssid}"
-								:halign "start"
-							)
-							(label
-								:text "⏺"
-								:class "wifi-connected-indicator"
-								:halign "end"
-								:hexpand true
-								:visible {network.active}
-							)
-						)
-					)
-				)
-			)
-		)
-	)
+              (image
+                :path {
+                    loading_wifi_network == network.ssid ?
+                        "img/yaru-icons/network-wireless-acquiring-symbolic.svg" : (
+                        available_wifi_networks[0].signal > wifi_signal_icons[0].cutoff ? wifi_signal_icons[0].icon :
+                        available_wifi_networks[0].signal > wifi_signal_icons[1].cutoff ? wifi_signal_icons[1].icon :
+                        available_wifi_networks[0].signal > wifi_signal_icons[2].cutoff ? wifi_signal_icons[2].icon :
+                        available_wifi_networks[0].signal > wifi_signal_icons[3].cutoff ? wifi_signal_icons[3].icon :
+                        wifi_signal_icons[4].icon
+                    )
+                }
+              )
+              (label
+                :text "${network.ssid}"
+                :halign "start"
+              )
+              (label
+                :text "⏺"
+                :class "wifi-connected-indicator"
+                :halign "end"
+                :hexpand true
+                :visible {network.active}
+              )
+            )
+          )
+        )
+      )
+    )
+  )
 )

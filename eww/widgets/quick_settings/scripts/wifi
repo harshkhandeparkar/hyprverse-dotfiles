@@ -21,6 +21,22 @@ toggle_wifi() {
 	fi
 }
 
+toggle_ssid() {
+	is_network_active=$(nmcli -t -f active,ssid device wifi | grep "$1" | head -1 | cut -d : -f1)
+
+	eww update loading_wifi_network="$1"
+
+	if [[ $is_network_active == "yes" ]];
+	then
+		nmcli connection down "$1"
+		eww update loading_wifi_network=""
+	else
+		eww update loading_wifi_network=""
+		nmcli connection up "$1"
+	fi
+
+}
+
 get_available_wifi_list() {
 	# Thanks to https://unix.stackexchange.com/questions/399222/parse-colon-separated-value-pairs-nmcli-output-and-convert-to-json-fromat#399718
 	nmcli -f ssid,active,signal -t device wifi | sed -z '$ s/\n$//' | jq -csR 'split("\n") | map(split(":")) | map({"ssid": .[0], "active": (.[1] == "yes"), "signal": .[2]}) | sort_by(.active, .signal) | reverse'
@@ -51,4 +67,7 @@ then
 elif [[ "$1" == "listavailable" ]];
 then
 	get_available_saved_conn_list
+elif [[ "$1" == "togglessid" ]];
+then
+	toggle_ssid "$2"
 fi
