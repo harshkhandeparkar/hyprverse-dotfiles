@@ -24,6 +24,7 @@
 			)
 			(box
 				:space-evenly false
+				:class "slider-and-label"
 				(scale
 					:value {value}
 					:onchange {onchange}

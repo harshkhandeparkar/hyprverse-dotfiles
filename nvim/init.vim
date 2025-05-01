@@ -3,11 +3,13 @@ tnoremap ii <C-\><C-n>
 set number
 set cursorline
 
-highlight cursorlinenr cterm=bold ctermfg=red
-highlight cursorline cterm=none
-highlight LineNr ctermfg=grey
-highlight Normal ctermbg=none guibg=none
-highlight NonText ctermbg=none guibg=none
+" highlight cursorlinenr cterm=bold ctermfg=red
+" highlight cursorline cterm=none
+" highlight LineNr ctermfg=grey
+" highlight Normal ctermbg=none guibg=none
+" highlight NonText ctermbg=none guibg=none
+hi Pmenu        ctermfg=white ctermbg=black gui=NONE guifg=white guibg=black
+hi PmenuSel     ctermfg=white ctermbg=blue gui=bold guifg=white guibg=purple
 
 call plug#begin()
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }

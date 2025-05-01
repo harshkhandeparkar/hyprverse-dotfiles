@@ -12,6 +12,7 @@ get_external_brightness() {
 }
 
 set_external_brightness() {
+	eww update "external_brightness=$1"
 	ddcutil setvcp 10 "$1"
 }
 

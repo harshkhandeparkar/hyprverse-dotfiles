@@ -1,21 +1,28 @@
-alias sucrow='sudo'
 alias yay!='yay'
 alias neofetch='fastfetch'
 alias cat='bat'
 alias ls='eza --icons --header'
-alias ssh='kitty +kitten ssh'
+# alias ssh='kitty +kitten ssh'
 alias man='tldr'
 alias vim='nvim'
 alias vi='nvim'
 
 # Git aliases
+stage() {
+	if [[ "$1" != "" ]];
+	then
+		git add $@
+	else
+		git add .
+	fi
+}
+
 alias checkout='git checkout'
 alias push='git push'
 alias pull='git pull'
 alias commit='git commit -m'
 alias fetch='git fetch'
 alias clone='git clone'
-alias stage='git add .'
 alias status='git status'
 alias rebase='git rebase'
 

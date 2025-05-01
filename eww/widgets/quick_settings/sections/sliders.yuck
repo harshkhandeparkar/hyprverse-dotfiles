@@ -18,7 +18,7 @@
 )
 (defpoll external_exists
 	:initial false
-	:interval "1s"
+	:interval "100ms"
 	:run-while quick_settings_open
 	"sh ./widgets/quick_settings/scripts/brightness external_exists"
 )
