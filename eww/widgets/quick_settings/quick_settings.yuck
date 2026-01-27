@@ -12,7 +12,7 @@
 
 (defvar quick_settings_open false)
 (defwindow quick_settings
-	:monitor "0"
+	:monitor "[1, 0]"
 	:geometry (geometry
 		:x "10px"
 		:y "10px"

@@ -1,5 +1,5 @@
 # Hyprverse
-Dotfiles for my Spiderverse-themed [Hyprland](https://hyprland.org) configuration on Arch Linux with NVIDIA dGPU + Intel CPU Laptop.
+Dotfiles for my Spiderverse-themed [Hyprland](https://hyprland.org) configuration on Arch Linux with an AMD dGPU + AMD CPU Laptop.
 ![neofetch](./img/neofetch.png)
 
 > **WARNING** Some information in this README is outdated.

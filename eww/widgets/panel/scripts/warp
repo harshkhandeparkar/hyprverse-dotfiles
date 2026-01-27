@@ -1,0 +1,20 @@
+warp_status() {
+	warp-cli status | head -1 | cut -d: -f2 | tr -d ' ' | tr '[:upper:]' '[:lower:]'
+}
+
+warp_toggle() {
+	warp_status=$(warp_status)
+	if [[ "$warp_status" == "connected" ]];
+	then
+		warp-cli disconnect
+	else
+		warp-cli connect
+	fi
+}
+
+if [[ "$1" == "toggle" ]];
+then
+	warp_toggle
+else
+	warp_status
+fi

@@ -1,7 +1,7 @@
 @use "sass:color";
 
 .media_controls {
-	background: $background_color;
+	background: transparent;
 	border: $border;
 	border-radius: $border_radius;
 
@@ -20,9 +20,7 @@
 	.controls-box {
 		padding: 20px 20px 20px 10px;
 		border-radius: $border_radius;
-		background-color: rgba(0, 0, 0, 0.7);
-		border: $border;
-		border-color: color.change($border_color, $alpha: 0.3);
+		background-color: rgba(0, 0, 0, 0.6);
 	}
 
 	.media-img {

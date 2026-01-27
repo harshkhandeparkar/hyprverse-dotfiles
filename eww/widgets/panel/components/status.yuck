@@ -26,7 +26,7 @@
 		(image
 			:image-height 24
 			:path {
-				EWW_BATTERY['BAT1'].status != "Charging" ?
+				EWW_BATTERY['BAT0'].status != "Charging" ?
 				"./img/yaru-icons/battery-${round(EWW_BATTERY.total_avg / 20, 0)*2 != 10 ? '0' : ''}${round(EWW_BATTERY.total_avg / 20, 0)*2}0.svg" :
 				"./img/yaru-icons/battery-${round(EWW_BATTERY.total_avg / 20, 0)*2 != 10 ? '0' : ''}${round(EWW_BATTERY.total_avg / 20, 0)*2}0-charging.svg"
 			}

@@ -37,4 +37,7 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/fzf-tab-git/fzf-tab.plugin.zsh
 
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-bindkey '\t\t' autosuggest-accept
+bindkey '^[`' autosuggest-accept
+
+WORDCHARS=${WORDCHARS/\/}
+WORDCHARS=${WORDCHARS/_}

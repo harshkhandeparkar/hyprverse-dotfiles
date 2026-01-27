@@ -3,7 +3,7 @@ get_metadata() {
 }
 
 get_progress() {
-	playerctl metadata -f '{"position":{{(position / mpris:length) * 100}}, "position_duration": "{{duration(position)}}", "length_duration": "{{duration(mpris:length)}}", "volume": {{volume}}}'
+	playerctl metadata -f '{"position":{{(position * 100) / mpris:length}}, "position_duration": "{{duration(position)}}", "length_duration": "{{duration(mpris:length)}}", "volume": {{volume}}}'
 }
 
 case "$1" in

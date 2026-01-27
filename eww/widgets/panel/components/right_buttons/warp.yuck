@@ -1,0 +1,23 @@
+(defpoll warp_status
+	:interval "100ms"
+	:initial ""
+	:run-while {panel_open}
+	"zsh ./widgets/panel/scripts/warp status"
+)
+
+(defwidget warp[]
+	(eventbox
+		:cursor "pointer"
+		(button
+			:onclick "zsh widgets/panel/scripts/warp toggle"
+			:class "panel-btn btn ${warp_status == 'connecting' ? 'btn-loading' : warp_status == 'connected' ? 'btn-active' : ''}"
+
+			:tooltip "WARP"
+
+			(image
+				:path "img/yaru-icons/nm-vpn-standalone-lock.svg"
+				:image-height 18
+			)
+		)
+	)
+)

@@ -3,6 +3,11 @@ media_cover_id=$(playerctl metadata mpris:artUrl | rev | cut -d '/' -f1 | rev)
 
 media_storage_dir="$HOME/.cache/media_covers"
 
+if [[ "$media_cover_url" == "file://"* ]]; then
+	echo "$media_cover_url"
+	exit 0
+fi
+
 media_file="$media_storage_dir/$media_cover_id"
 if [ -f "$media_file" ];
 then

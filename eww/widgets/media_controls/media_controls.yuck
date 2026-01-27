@@ -1,6 +1,6 @@
 (defvar media_controls_open false)
 (defwindow media_controls
-	:monitor "0"
+	:monitor "[1, 0]"
 	:geometry (geometry
 		:x "10px"
 		:y "10px"

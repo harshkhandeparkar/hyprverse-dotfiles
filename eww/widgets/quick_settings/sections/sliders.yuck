@@ -24,7 +24,7 @@
 )
 (defpoll external_brightness
 	:initial 0
-	:interval "2s"
+	:interval "500ms"
 	:run-while quick_settings_open
 	"sh ./widgets/quick_settings/scripts/brightness get_external"
 )

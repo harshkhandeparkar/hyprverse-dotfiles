@@ -17,10 +17,18 @@ stage() {
 	fi
 }
 
+commit() {
+	if [[ "$1" == "--amend" ]];
+	then
+		git commit --amend
+	else
+		git commit -m $@
+	fi
+}
+
 alias checkout='git checkout'
 alias push='git push'
 alias pull='git pull'
-alias commit='git commit -m'
 alias fetch='git fetch'
 alias clone='git clone'
 alias status='git status'
