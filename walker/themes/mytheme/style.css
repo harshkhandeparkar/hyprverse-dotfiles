@@ -1,0 +1,120 @@
+/* Color definitions */
+@define-color window_bg_color hsl(34, 40%, 12%);
+@define-color accent_bg_color hsl(34, 61%, 75%);
+@define-color theme_fg_color #f2ecbc;
+@define-color error_bg_color #C34043;
+@define-color error_fg_color #DCD7BA;
+
+* {
+	all: unset;
+}
+
+.box-wrapper {
+	box-shadow:
+		0 19px 38px rgba(0, 0, 0, 0.3),
+		0 15px 12px rgba(0, 0, 0, 0.22);
+	background: @window_bg_color;
+	padding: 20px;
+	border-radius: 20px;
+	border: 1px solid alpha(@accent_bg_color, 0.3);
+}
+
+.input {
+	caret-color: @theme_fg_color;
+	background: lighter(@window_bg_color);
+	padding: 10px;
+	color: @theme_fg_color;
+	border-radius: 10px;
+}
+
+.input placeholder {
+	opacity: 0.5;
+}
+
+.list {
+	color: @theme_fg_color;
+}
+
+.item-box {
+	border-radius: 10px;
+	padding: 10px;
+}
+
+child:hover .item-box,
+child:selected .item-box {
+	background: alpha(darker(@accent_bg_color), 0.25);
+}
+
+.item-text {
+	font-size: 14px;
+}
+
+.item-subtext {
+	font-size: 12px;
+	opacity: 0.5;
+}
+
+.item-image,
+.item-image-text {
+	margin-right: 10px;
+}
+
+.item-quick-activation {
+	margin-left: 10px;
+	background: alpha(@accent_bg_color, 0.25);
+	border-radius: 5px;
+	padding: 10px;
+}
+
+.placeholder,
+.elephant-hint {
+	color: @theme_fg_color;
+	opacity: 0.5;
+}
+
+.keybinds-wrapper {
+	border-top: 1px solid lighter(@window_bg_color);
+	font-size: 12px;
+	opacity: 0.5;
+}
+
+.keybind {
+	color: alpha(@theme_fg_color, 0.6);
+}
+
+.keybind-label {
+	border: 1px solid alpha(@accent_bg_color, 0.5);
+	border-radius: 5px;
+	padding: 2px 4px;
+}
+
+.keybind-bind {
+	text-transform: lowercase;
+	color: inherit;
+}
+
+.error {
+	padding: 10px;
+	background: @error_bg_color;
+	color: @error_fg_color;
+	border-radius: 5px;
+}
+
+.preview {
+	border: 1px solid alpha(@accent_bg_color, 0.25);
+	padding: 10px;
+	border-radius: 10px;
+	color: @theme_fg_color;
+}
+
+.normal-icons {
+	-gtk-icon-size: 16px;
+}
+
+.large-icons {
+	-gtk-icon-size: 32px;
+}
+
+scrollbar {
+	opacity: 0;
+}

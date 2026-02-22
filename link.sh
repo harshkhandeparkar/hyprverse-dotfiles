@@ -10,6 +10,7 @@ remove_dirs() {
 	rm -r ~/.config/fastfetch
 	rm ~/.config/rofimoji.rc
 	rm -r ~/.config/nvim
+	rm -r ~/.config/walker
 
 	# ZSH
 	rm ~/.config/starship.toml
@@ -37,7 +38,8 @@ install() {
 	$1 ./fastfetch ~/.config/
 	$1 ./rofimoji/rofimoji.rc ~/.config/rofimoji.rc
 	$1 ./nvim ~/.config/
-	$1 ./spotify/-flags.conf ~/.config
+	$1 ./spotify/spotify-flags.conf ~/.config
+	$1 ./walker ~/.config
 
 	# ZSH
 	$1 ./zsh/starship.toml ~/.config/starship.toml

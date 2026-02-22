@@ -1,0 +1,5 @@
+force_keyboard_focus = true
+theme = "mytheme"
+
+[keybinds]
+quick_activate = ["1", "2", "3", "4", "5"]
